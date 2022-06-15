@@ -1,0 +1,288 @@
+#Looping
+#Allows you to take action or set of actions on a list of items
+#This is userful if you want to have an action performed for each item in a list
+
+jedilist = ['Obi-wan','Luke','Yoda']
+for jedi in jedilist:
+	print(jedi)
+
+#Looping is useful in automating comman task
+#Python will repeat the task for each value in the list
+
+jedilist = ['Obi-wan','Luke','Yoda']
+for jedi in jedilist:
+	print(f'{jedi.title()}, is a great Jedi Master.')
+
+##############
+#Doing something after running a loop
+jedilist = ['Obi-wan','Luke','Yoda']
+for jedi in jedilist:
+	print(f'{jedi.title()}, is a great Jedi Master.')
+	print(f"I can't wait to watch Star Wars so I could see {jedi.title()}.\n")
+
+print("Thank you, for watching my video fellow Jedi.")
+#####################################################################Replicating erros start
+
+#Avoiding indent errors
+
+#jedilist = ['Obi-wan','Luke','Yoda']
+#for jedi in jedilist:
+#print(jedi) #####causes error for instructional purposes # Don't forget to indent
+
+###Forgetting indent
+#jedilist = ['Obi-wan','Luke','Yoda']
+#for jedi in jedilist:
+#	print(f'{jedi.title()}, is a great Jedi Master.')
+#print(f"I can't wait to watch Star Wars so I could see {jedi.title()}.") #another error
+###
+
+###
+#indenting when you don't need to
+
+message = "Hello Python world!"
+#	print(message)
+
+
+#Not inserting the Colon
+#jedilist = ['Obi-wan','Luke','Yoda']
+#for jedi in jedilist
+#	print(jedi)
+
+###############################################################################end
+#Range
+for value in range(1,5):
+	print(value)
+
+for value in range(1,6):
+	print(value)
+
+#using a ranged list
+numbers = list(range(1,6))
+print(numbers)
+
+#Printing even number
+even_numbers = list(range(2,11,2))
+print(even_numbers)
+
+#squaring numbers in a list using the range we secify
+squares = []
+for value in range(1,11):
+	square = value ** 2
+	squares.append(square)
+print(squares)
+
+
+###############
+digits = [1,2,3,4,5,66,7,8,9,0]
+print(min(digits))
+
+print(max(digits))
+
+print(sum(digits))
+
+#List Comprehension
+squares = [value**2 for value in range(1,11)]
+print(squares)
+
+################Challenge printing the numbers from 1 to 20
+digits =[]
+for digit in range(1,21):
+	digits.append(digit)
+print(digits)
+
+
+#print 1 million
+#digits =[]
+#for digit in range(1,1_000_000):
+#	digits.append(digit)
+#print(digits)
+#print(sum(digits))
+
+
+#print odd numbers
+odd_list = [value**1 for value in range(1,21,2)]
+print(odd_list)
+
+#making a list of multiples of 3
+odd_list = [value**1 for value in range(3,21,3)]
+print(odd_list)
+
+#Making a list of Cubes which is 2**3 or a number to the third power
+cube_list = [value**3 for value in range(1,21)]
+print(cube_list)
+
+#Making a list of Cubes which is 2**3 or a number to the third power
+#The list only shows 3 cubes
+
+
+cube_list = [value**3 for value in range(1,10)]
+print(cube_list)
+
+
+#Slicing list
+#Slicing a list image the list as a whole cheese cake and you want only a part of that 
+#cheesecake so you slice a part off. We are doing the same but with list
+#Slicing a list to only show the first 3 characters
+starwarschar = ['luke','Darth Vader','Han Solo','Yoda']
+print(starwarschar[0:3])
+
+
+#What happens if you leave the first slice out
+#it starts in the beginiing
+starwarschar = ['luke','Darth Vader','Han Solo','Yoda']
+print(starwarschar[:3])
+
+
+#or # to slice the last 2
+starwarschar = ['luke','Darth Vader','Han Solo','Yoda']
+print(starwarschar[2:])
+
+#To loop through a slice
+starwarschar = ['luke','Darth Vader','Han Solo','Yoda']
+for char in starwarschar[:2]:  #remember the : #we are only looping through first 2 in list
+	print(char.title())
+
+
+#To make a seperate list
+darksider_list1 = ['Darth Vader','Maul']
+darksider_list2 = darksider_list1[:]
+
+print("My favorite star wars characters are:")
+print(darksider_list1)
+
+print("My viewer and subscribers favorite chaacters are")
+print(darksider_list2)
+
+#Slice the last 3 in the list
+starwarschar = ['luke','Darth Vader','Han Solo','Yoda']
+print(starwarschar[-3:])
+
+#Loop through a Sliced list
+starwarschar = ['luke','Darth Vader','Han Solo','Yoda']
+
+print(f'The first three characters are:')
+for char in starwarschar[:3]:
+	print(char.title())
+
+#Copying List with [:]
+starwarschar = ['luke','Darth Vader','Han Solo','Yoda']
+
+my_fav_char = ['Luke','Yoda','Solo']
+my_viewers_fav_char = my_fav_char[:] #makes a list that begins at first and last item
+print('My favorite characters are:')
+print(my_fav_char)
+
+print("\nMy friend's characters are:")
+print(my_viewers_fav_char)
+
+#Appending a new valude to my list
+my_fav_char = ['Luke','Yoda','Solo']
+my_fav_char.append('Darth Vader')
+print(f'my fav characters are :')
+for char in my_fav_char:
+	print(char)
+
+#My jedi like Rey but I don't like Rey so my list will not include Rey
+my_jedi_viewers_char = my_fav_char[:]
+print(f"My Jedi's faviorite characters are:")
+my_jedi_viewers_char.append('Rey')
+for char in my_jedi_viewers_char:
+	print(char)
+
+
+##########################Challenge slicing through a list
+
+car_list = ['Tesla','Honda','Tank']
+for car in car_list[:3]:
+	print(f'My favorite car is a {car.title()}')
+
+print("\n")
+
+car_list = ['Tesla','Honda','Tank','Hot Wheels']
+for car in car_list[2:4]:
+	print(f'My favorite car is a {car.title()}')
+
+print("\n")
+###slicing the last character
+
+car_list = ['Tesla','Honda','Tank','Hot Wheels']
+for car in car_list[3:4]:
+	print(f'My favorite car is a {car.title()}')
+
+###################Challenge 2 copying a list and adding to a list
+print("\n")
+
+my_fav_games = ['Halo','Star Wars Battlefront','Call of Duty']
+my_viewer_fav_games = my_fav_games[:] #makes a list that begins at first and last item
+print('My favorite video games are:')
+print(my_fav_games)
+
+print("\n")
+
+print("\nMy viewers favorite video games are:")
+print(my_viewer_fav_games)
+
+print("\n")
+###adding a game to the list
+
+my_fav_games = ['Halo','Star Wars Battlefront','Call of Duty']
+my_viewer_fav_games = my_fav_games[:] #makes a list that begins at first and last item
+
+
+my_fav_games.append("life")
+print(f"My favorite games are the following:")
+for game in my_fav_games:
+	print(game)
+
+print("\n")
+
+my_viewer_fav_games.append("Call of Python II")
+print(f"My viewers favorite games are the following:")
+for game in my_viewer_fav_games:
+	print(game)
+
+
+
+######################challenage 2 end
+
+####################
+#Tuples
+#Allow you to create list that doesn't change 
+#persistant list
+#You use parentheses () instead of square brackets
+
+numberlist = (200, 50)
+print(numberlist[0])
+print(numberlist[1])
+
+#error showing you cannot change the value
+#number_list =(200, 50)
+#print(dimension[0])
+#print(dimension[1])
+#dimension[0] = 250
+
+#looping through a tuple
+numberlist = (200, 50)
+for num in numberlist:
+	print(num)
+
+#Reassigning a variable a new value
+#Number list 1
+pricelist = ("$3","$4")
+print("January's cost of gas:")
+for price in pricelist:
+	print(price)
+
+pricelist = ("$5", "$6")
+print("June's cost of gas:")
+for price in pricelist:
+	print(price)
+
+#Tips
+
+#use 4 spaces for indent
+#set a limit of about 80 characters per line
+#use line breaks print("\n")
+#Next class will be on If statements
+
+
