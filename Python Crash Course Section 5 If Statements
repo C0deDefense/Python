@@ -14,10 +14,11 @@ for brand in brandslist:
 		print(brand.upper())
 	else:
 		print(brand.title())
+#The loop checks if the item matchs Gap if so it performs an action
+
 ################End Part 1
 
 ################Part 2
-#The loop checks if the item matchs Gap if so it performs an action
 
 #Conditional test
 # We could set a conditional test 
@@ -51,6 +52,8 @@ print(fighter.lower() == 'tie fighter')
 
 #now print the ships variable does it change 
 #no the value is not altered. The lower() doesn't change the original value
+fighter = 'Tie fighter'
+print(fighter.lower() == 'tie fighter')
 print(fighter)
 #################END Part 5
 
@@ -155,14 +158,15 @@ if user not in Banned_list:
 
 #If statement
 #Different if statements exist 
-#the simplest is an If statement that test one condition
+#the simplest if statement test one condition
 #if conditional_test:
 	#do something
 
-age = 17
+age = 15
 if age >= 17:
-	print(f"{user.title()} you could buy M-rated video games at gamestop by yourself.")
+	print(f"You are {age} so you could buy a rated M video games at gamestop by yourself.") 
 ############################END PART 14
+
 
 
 ###############################PART 15
@@ -294,7 +298,7 @@ if alien_color == "green":
 
 ##############################PART 22
 #Alien Color 2
-#If else that will prompt you earned 5 points if green and is not you earned 10 points
+#If else that will prompt you earned 5 points if green if not the color is not green
 
 alien_color = "green"
 
@@ -429,16 +433,16 @@ for user in workerList:
 #Checking to make sure the list is full and if not the
 #catch statement will print insert a value
 
-workerList = ["Han","Luke","Boba Fett","Chewie","R2D2"]
 
-for user in workerList:
-	if user == "Luke":
-		print(f"{user} we need you.")
-	else:
-		print(f"{user} welcome")
+workerList = []
 
+if workerList:
+	for worker in workerList:
+		print(f"Adding {worker}")
+	print("List is ready")
 else:
-	print(f"insert a value")
+	print(f"The list is empty")
+	
 ##########################################END PART 31
 
 #########################################PART 32
