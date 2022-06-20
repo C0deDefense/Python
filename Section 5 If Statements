@@ -1,0 +1,522 @@
+#################Part 1
+#If statements
+#simply we have take input and ran it through a loop 
+#now we will utilize if statements to set a conditional test
+#if a condition is met perform these actions
+
+#if test
+#What if we had a list of  brands 
+#if the brand is GAP we want all letters in the name to be captilized
+
+brandslist = ['Nike','Adidas','Gap']
+for brand in brandslist:
+	if brand == 'Gap':
+		print(brand.upper())
+	else:
+		print(brand.title())
+################End Part 1
+
+################Part 2
+#The loop checks if the item matchs Gap if so it performs an action
+
+#Conditional test
+# We could set a conditional test 
+# if the value matchs a certain character the boolean value will be set to true or false
+
+brand = "Nike" #here we are saying set the brand variable to Nike
+print(brand == 'Nike') #Here we are asking does the brand equal nike? see == and ?
+#returns true if the brand is Nike and false otherwise
+##################end Part 2
+
+#################Part 3
+#Case matters Tie fighter in python doesn't equal tie fighter due to the lower case
+fighter = 'Tie fighter'
+print(fighter == 'tie fighter')
+#################end Part 3
+
+#################Part 4
+#you could run the variable through a lower() method
+#we take the value Tie fighter and run it throught the lower method
+#the lower method will lower case the Tie to tie fighter
+#this will cause the two to become equal
+fighter = 'Tie fighter'
+print(fighter.lower() == 'tie fighter')
+################### END Part 4
+
+##################Part 5
+#Here
+#fighter = 'Tie fighter'
+#print(fighter.lower() == 'tie fighter') we checked if the value stored in the fighter value is
+#equal to the 'tie fighter' if so prints true
+
+#now print the ships variable does it change 
+#no the value is not altered. The lower() doesn't change the original value
+print(fighter)
+#################END Part 5
+
+
+##################Part 6
+###Testing for inequality
+#if we want to determine if a value is not equal to  use !=
+# ! exclmation means NOT so != means is not equal to
+#Let !=
+
+character = "Jar Jar"
+print(character)
+if character != 'Anakin':
+	print("The character is not the choosen one.")
+
+
+#cyber security example #adware #spyware #trogens #worms
+#if the malware is not a spyware
+#print the malware is not spyware
+##################End Part 6
+
+##################Part 7
+#Numerical Comparisons
+
+year = 2025
+print(year == 2025)
+##################End Part 7
+
+##################Part 8
+chosenone = 'JarJar'
+
+if chosenone != 'Anakin':
+	print("This is not the correct answer. Please try again!")
+#################End Part 8
+
+#################Part 9
+#######################Mathematical comparision
+age = 21
+
+if age < 21:
+	print(f"You can not drink")
+if age > 20:
+	print(f"You can drink")
+################END Part 9
+
+#################Part 10
+#If you need to check if multiple conditions are true use and
+#and
+
+
+#Using Multiple Conditions to determine if the value is true or false
+#example 
+#In order to check if someone is on the Darkside.
+#We ask are their Eyes yellow? and Do they have a red light saber? 
+#if both of these conditions are meet they are a Sith Lord
+#Jar Jar Check will be false lets see why
+sith_attribute1 = 'Yellow Eyes'
+sith_attribute2 = 'No Red Lighsaber'
+
+print( sith_attribute1 == "Yellow Eyes" and sith_attribute2 == "Red Lighsaber")
+
+
+#Darth Vader check will be true lets see why
+sith_attribute1 = 'Yellow Eyes'
+sith_attribute2 = 'Red Lighsaber'
+
+print( sith_attribute1 == "Yellow Eyes" and sith_attribute2 == "Red Lighsaber")
+#######################End PART 10
+
+#####################Part 11
+#or
+#Can you watch a R-movie
+#We are checking the age of person 1 and 2 before letting them in
+Person1age = 13
+Person2age = 16
+print(Person1age >= 18 or Person1age >= 18)
+#####################END PART 11
+
+####################PART 12
+#Checking if a value is in a list
+#Here we check the existence of Sport's Car in the typeofcars list
+typesofcars = ['Sedan','Coupe','Sport Car','Muscle Car']
+print('Sport Car' in typesofcars)
+####################END PART 12
+
+
+#####################PART 13
+#Check whether a value is not in a list
+#Here we will check to see people in the twitter banned list 
+#and if so they cannot create an account
+Banned_list = ["Alex Jones","David Duke","Donald Trump","Michael Flynn"]
+user = 'Danthetech'
+
+if user not in Banned_list:
+	print(f"{user.title()}, you can create an account if you wish.")
+####################END PART 13
+
+#####################PART 14
+#Boolean Expressions
+#Boolean expressions is just another name for conditional test. Boolean value can be true or false
+#example is the sky blue yes so the boolean would be true
+
+#If statement
+#Different if statements exist 
+#the simplest is an If statement that test one condition
+#if conditional_test:
+	#do something
+
+age = 17
+if age >= 17:
+	print(f"{user.title()} you could buy M-rated video games at gamestop by yourself.")
+############################END PART 14
+
+
+###############################PART 15
+#If else statements
+#Normally you would want an action taken if a condition is met and another action 
+#taken if the condition is not met
+
+
+age = 18
+if age >= 18:
+	print(f"{user.title()} you could join the military")
+else:
+	print(f"You cannot join the military come back when you are 18. Go play some Call of Duty.")
+
+#The if-else statement works well in situations in which you want Python to always execute
+#One of two possible actions.One of the two actions will execute.
+###############################END PART 15
+
+#################################PART 16
+#The if-elif-else chain
+#In the case you have more than two possible specific conditions and require further evuluation
+#use Python if-else-syntax.It runs each condition and if one matchs it will stop the test
+#and perform an action
+#comic con ticket if you are older than 12 you must pay 90.00
+age = 18
+if age < 12:
+	print("You pay $0 ")
+elif age > 12:
+	print("You must pay $90")
+else:
+	print("Input a valid age")
+
+
+
+#A more efficient way of doing this is
+
+age = 18
+
+if age < 12:
+	price = 0
+elif age > 12:
+	price = 90
+else:
+	price = "input a valid age"
+
+print(f"Your price is ${price}.")
+#################################END PART 16
+
+##################################PART 17
+#Using Multiple elif Blocks
+#earlier we used grading let do the same using A-F
+#We can use as many elif blocks as we want in our code
+
+score = 49
+
+if score > 89:
+	grade = "A"
+elif score > 79:
+	grade = "B"
+elif score > 69:
+	grade = "C"
+elif score > 59:
+	grade = "D"
+else:
+	grade = "F"
+print(f"Your grade is {grade}")
+###################################END PART 17
+
+###################################PART 18
+#Here we show the else at the end is not required and we could
+#create a catch all statement with the elif score <= 49:
+#A catch all statement will take action if no match is found
+
+score = 49
+
+if score > 89:
+	grade = "A"
+elif score > 79:
+	grade = "B"
+elif score > 69:
+	grade = "C"
+elif score > 59:
+	grade = "D"
+elif score <= 49:
+	grade = "F"
+print(f"Your grade is {grade}")
+###################################END PART 18
+
+
+#############################PART 19
+#Testing multiple conditions 
+#Mc Donalds orders
+
+order = ["mcnuggets","mcdouble","Ice-Cream"]
+
+if "mcnuggets" in order:
+	print("mcnuggests right up")
+if "mcdouble" in order:
+	print("mcdouble right up")
+if "Ice-Cream" in order:
+	print("Our Ice-Cream machine is broken sorry")
+
+print("Your order is ready sir accept the Ice-Cream sorry.")
+###########################END PART 19
+
+###########################PART 20
+#This code would not properly if we used an if-elif-else block
+#because the code would stop running after only one
+#test passes.
+order = ["mcnuggets","mcdouble","Ice-Cream"]
+
+if "mcnuggets" in order:
+	print("mcnuggests right up")
+elif "mcdouble" in order:
+	print("mcdouble right up")
+elif "Ice-Cream" in order:
+	print("Our Ice-Cream machine is broken sorry")
+
+print("Your order is ready sir accept the Ice-Cream. Go get an Ice-Cream at baskin robbins sorry.")
+##############################END PART 20
+
+##############################PART 21
+#Alien Color 1 If else that will prompt you earned 5 points if green
+alien_color = "green"
+
+if alien_color == "green":
+	print(f"You just earned 5 points")
+##############################END PART 21
+
+##############################PART 22
+#Alien Color 2
+#If else that will prompt you earned 5 points if green and is not you earned 10 points
+
+alien_color = "green"
+
+if alien_color == "green":
+	print(f"You just earned 5 points")
+
+else:
+	print(f"The alien color is not green.")
+##############################END PART 22
+
+################################PART 23
+#Alien Color use if-elif chain
+
+alien_color = "green"
+
+if alien_color == "green":
+	print(f"You earned 5 points player")
+elif alien_color == "yellow":
+	print(f"You earned 10 points player")
+elif alien_color == "red":
+	print(f"You earned 15 points player")
+##################################END PART 23
+
+################################PART 24
+#Ages isomg if-elif-else
+
+
+humanyears = 110
+
+if humanyears > 1000:
+	print(f"Grogu (baby yoda) is a force ghost")
+elif humanyears > 900:
+	print(f"Grogu (baby yoda) would be very old")
+elif humanyears > 700:
+	print(f"Grogu (baby yoda) is an old person")
+elif humanyears > 300:
+	print(f"Grogu (baby yoda) is an Adult")
+elif humanyears > 200:
+	print(f"Grogu (baby yoda) is an Adolscent")
+elif humanyears > 100:
+	print(f"Grogu (baby yoda) would only of primary school age ")
+if humanyears < 50:
+	print(f"Grogu (baby yoda) would only be an Newborn-infinte-todder-Schoolage")
+
+###############################END PART 24
+
+####################################PART 25
+#break
+####################################
+
+####################################PART 26
+#List of things you like
+
+likelist = ["Star Wars","Python","Hacking"]
+
+if "Star Wars" in likelist:
+	print("You like Star Wars")
+if "Python" in likelist:
+	print("You like Python")
+if "Hacking" in likelist:
+	print("You like hacking")
+else:
+	print("not on like list")
+####################################END PART 26
+
+
+####################################PART 27
+#Checking for special items using a conditional test and loop
+
+order = ["mcnuggets","mcdouble","Ice-Cream"]
+
+for request in order:
+	if request == "Ice-Cream":
+		print(f"Sorry our Ice-Cream machine is broken. No Ice-Cream :(")
+	else:
+		print(f"{request} on the way")
+
+print("Your order is ready sir.")
+#Here we check each request item before adding printing the order and saying on the way
+#the Ice-Cream machine is broken as always so they say sorry no Ice-Cream
+###################################END PART 27
+
+#####################################PART 28
+#Checking if the order is empty
+#Here we will check if the order is empty 
+#do a quick check to see if the list is empty line
+#if order: checks if the list is empty in which case Python returns turn it will run
+#else in the case the list is in fact empty Python returns false and the else is run
+order = []
+
+if order:
+	for request in order:
+		print(f"{request} Order on the way")
+	print(f"Your order is ready")
+else:
+	print("You didn't order anything sir. Do you need more time")
+##########################################END PART 28
+
+########################################PART 29
+######Using Multiple List
+#Here we will compare 2 list
+#we will the the request in the order and if the
+#request is not in the menu list we will print we don't sell that at McD's
+#We will prepare the order if the item is on the list
+
+menu = ["mcnuggets","mcdouble","Big Mac","Cheeseburger","Coke","AR-15"]
+
+order = ["mcdouble","Famous Star Burger(Carl's Jr","Coke"]
+
+for request in order:
+	if request in menu:
+		print(f"Adding {request}")
+	else:
+		print(f"We don't sell {request} at McD's")
+
+print("\n Your order is ready sir")
+############################################END PART 29
+
+
+######################################PART 30
+#Creating a list and printing a message for everY user in the list
+workerList = ["Han","Luke","Boba Fett","Chewie","R2D2"]
+
+for user in workerList:
+	if user == "Luke":
+		print(f"{user} we need you.")
+	else:
+		print(f"{user} welcome")
+#######################################END PART 30
+
+########################################PART 31
+#Checking to make sure the list is full and if not the
+#catch statement will print insert a value
+
+workerList = ["Han","Luke","Boba Fett","Chewie","R2D2"]
+
+for user in workerList:
+	if user == "Luke":
+		print(f"{user} we need you.")
+	else:
+		print(f"{user} welcome")
+
+else:
+	print(f"insert a value")
+##########################################END PART 31
+
+#########################################PART 32
+#Checking username in a list
+
+database_users = ["DantheTech","Cody","Rex","Fives"]
+
+new_users = ["Wolffe","Echo","Heavy","Rex"]
+
+for user in new_users:
+	if user in database_users:
+		print(f"{user} name is already taken")
+	else:
+		print(f"Your account  is in progress {user}")
+
+print("\n Account creation complete")
+
+
+########################################END PART 32
+
+#######################################PART 33
+
+already_created_users = ["DantheTech","Cody","Rex","Fives"]
+
+new_users= ["Wolffe","Echo","Heavy","REX"]
+
+for user in range(len(already_created_users)):
+	already_created_users[user] = already_created_users[user].lower() 
+
+for user in range(len(new_users)):
+	new_users[user] = new_users[user].lower() 
+
+for user in new_users:
+	if user in already_created_users:
+		print(f"{user} name is already taken")
+	else:
+		print(f"Your account  is in progress {user}")
+
+print("\n Account creation complete")
+############################################END PART 33
+
+############################################PART 34
+
+###Creating a list with the numbers 1-5
+#Appending st, nd, rd depending on the number 1-5
+#example 1st, 2nd, 3rd, 4th, 5th
+
+medal_place_list = [value+1 for value in range(0,10)]
+
+
+for place in medal_place_list:
+
+	if place == 1:
+		print(f"You placed {place}st Gold")
+	elif place == 2:
+		print(f"You placed {place}nd Silver")
+	elif place == 3:
+		print(f"You placed {place}rd Bronze")
+	elif place > 3:
+		print(f"You placed {place}th participation ribbon") #The only thing I achieved in K1-high school
+
+#####################################################END PART 34
+
+
+##############################################SPECIAL PROGRAM
+# Python program showing
+# a use of input()
+ #Running a program in Python
+ #For Windows install Python 3.10 or latest from Microsoft Store
+ #for Kali Linux no action is needed
+ #Save a file on your computer name it age.py
+ #input code
+#double click file
+#input your age
+######################################Code to input in age.py ensure to uncomment
+#import os
+#print('Enter your age') 
+#age = input()
+#print(f'Your age is: {age.title()}')
+#os.system("pause")
+#####################################
