@@ -1,0 +1,581 @@
+######################Part 1
+#Dictionaries allow you to connect pieces of related information.
+
+#Simply alien stores information about an object like an alien
+alien_0 = {'color':'green','points':5}
+print(f"{alien_0['color']}")
+print(f"{alien_0['points']}")
+
+
+#########################End Part 1
+
+#########################Part 2
+#dictorary store key value pairs
+#each key is mapped to a value for instance 'color':'green'
+#The key is color the value is green
+
+#Python disigues dictoraires by having {} with key value pairs inside
+
+#You provide the key python provides a value
+#ensure to seperate the key value pairs with a comma
+
+##########################End Part 2
+
+##########################Part 3
+
+#To accesss key value pairs
+#give the name of the dictorary and key inside of the square brackets
+
+
+alien_0 = {'color':'green'}
+print(alien_0['color'])
+
+##########################End Part 3
+
+
+###########################Part 4
+
+alien_0 = {'color':'green', 'points':5}
+
+new_points = alien_0['points']
+print(f"You just earned {new_points} points!")
+
+#Adding New Key-Value Pairs
+############################End Part 4
+
+############################Part 5 Adding Key-Value pairs
+
+#Adding new key-value pairs
+
+#You could add Dictionary at any time
+#you would give the name of the dictonary and the followed new key in square brackets and with the new value
+#we will provide x and y coordinates
+#we will place the alien at the top left of the screen
+
+#---------------x
+#|  
+#| *here (0,25)
+#|
+#|
+#y
+
+alien_0 = {'color':'green','points':5}
+print(alien_0)
+alien_0['x_position'] = 0
+alien_0['y_position'] = 25
+print(alien_0)
+
+############################End Part 5
+
+
+
+##########################Part 6 Starting empty
+###You may want to start with an empty dictionary and start after
+#for example if we expect user supplied data
+#Now you see the added dictionary key value pairs
+
+Alien_0 = {}
+
+Alien_0['color'] = 'green'
+Alien_0['points'] = 5
+
+print(Alien_0)
+
+########################End Part 6
+
+
+
+###########################Part 7 positioning
+alien_0 = {'color':'green'}
+print(f"The alien is {alien_0['color']}.")
+
+alien_0 = {'color':'yellow'}
+print(f"The alien is {alien_0['color']}.")
+
+
+##tracking the position of an alien ship
+
+alien_0 = {'x_position':0, 'y_position':25, 'speed':'medium'} #starts at speed meduim
+print(f"Original position: {alien_0['x_position']}")
+
+#Move the alien to the right
+#determin how far to move the alien based on its current speed
+
+if alien_0['speed'] == 'slow':                                #checks is the speed slow no next
+	x_increment = 1
+elif alien_0['speed'] == 'medium':                            #checks is the speed meduim
+	x_increment = 2                                           #increment by 2
+else:
+	#This must be a fast alien
+	x_increment = 3                                           #else the speed is high floor it increment by 3
+#The new position is the old position plus the increment.
+alien_0['x_position'] = alien_0['x_position'] + x_increment   #take that alien position and apply the incrementation
+                                                              #according to speed
+print(f"New position: {alien_0['x_position']}")               #the alien position should be 2
+
+#########################Part 7 End 
+
+#########################Part 8 Removing a key value pair
+
+#use the del statement to completely remove a key-value pair
+
+alien_0 = {'color':'green','points':5}
+print(alien_0)
+
+del alien_0['points']
+print(alien_0)
+
+#Python will delte the key points and the value
+#########################Part 8 end
+
+###########################Part 9 Dictionary objects
+
+favorite_languages = {
+	'jen':'python',
+	'sarah':'c',
+	'edward':'ruby',
+	'phil':'python'
+}
+
+language = favorite_languages['sarah'].title()
+print(f"Sarah's favorite language is {language}.")
+favorite_languages['sarah']
+
+ ###########################End Part 9
+
+
+ ##########################Part 10 using get()
+#get let you get a key's value or checks if a value exist 
+#and if it doesn't you could have it return an error
+
+alien_0 = {'color':'green','speed':'slow'}
+
+point_value  = alien_0.get('points','No point value assigned.') #get the points value if not return
+                                                                #no point value assigned
+print(point_value)
+
+point_value  = alien_0.get('points')
+
+print(point_value)
+
+############################End part 10
+
+
+#############################Part 11 Try this
+
+#11-1
+person1 = {
+	'first_name':'Master',
+	'last_name':'Chief',
+	'born':'Eridanus'
+}
+
+#11-2
+name_fav_number = {
+	'Bob':5,
+	'James':6,
+	'Sarah':3
+}
+
+print(f"Bob favorite number is {name_fav_number['Bob']}")
+print(f"James favorite number is {name_fav_number['James']}")
+print(f"James favorite number is {name_fav_number['Sarah']}")
+
+#11-3
+
+things_we_learned = {
+	'dictionaries':'allow you to connect peaces of info',
+	'Key':'a connected value',
+	'value':'the keys value',
+}
+
+print(f"Dictionaries can be said to {things_we_learned['dictionaries']}.\n")
+print(f"A key can be defined as {things_we_learned['Key']}.\n")
+print(f"A value can be defined as {things_we_learned['value']}.\n")
+
+
+#######################End 11
+
+
+######################Start 12 Looping through a dictionary
+
+user_0 = {
+	'username':'danthetech',
+	'first':'enrico',
+	'last':'fermi'
+}
+
+for key, value in user_0.items():
+	print(f"\nKey: {key}")
+	print(f"\nValue: {value}")
+
+########################End 12
+
+#########################Start 13
+	#Writing a for loop for a dictionary. 
+user_0 = {
+	'username':'luke.skywalker',
+	'first_name':'luke',
+	'last_name':'skywalker'
+}
+
+for key, value in user_0.items():
+	print(f"Key: {key}")
+	print(f"Value: {value}")
+	
+
+user_0 = {
+	'username':'luke.skywalker',
+	'first_name':'luke',
+	'last_name':'skywalker'
+}
+
+for k, v in user_0.items(): # Use the items() method to return key value pair ##you create the name of 2 variables k and v
+	print(f"Key: {k}") #the loop assigns each pair to these two values and prints it out to the screen
+	print(f"Value: {v}")
+
+#####################End 13
+
+#####################Start 14
+
+
+#Here we do the same thing but make it look nicer
+favorite_languages = {
+	'jen':'python',
+	'sarah':'c',
+	'edward':'ruby',
+	'phil':'python'
+}
+
+for name, language in favorite_languages.items():
+	print(f"{name.title()}'s favorite language is {language.title()}.")
+
+####################End 14
+
+####################Start 15
+#########Using the Key method to only use the keys
+
+favorite_languages = {
+	'jen':'python',
+	'sarah':'c',
+	'edward':'ruby',
+	'phil':'python',
+}
+
+for name in favorite_languages.keys():#here we are using the key() we are also only using the name key
+	print(name.title())
+
+###############End 15
+
+###############Looping through all values in Dictionary Start 16
+#here we are only looping through the value in the favorite language
+favorite_languages = {
+	'jen':'python', #python 
+	'sarah':'c',
+	'edward':'ruby',
+	'phil':'python',
+}
+
+print("The following language have been menttioned:")
+for language in (favorite_languages.values()): #here we are looping through the values
+	print(language.title())
+
+###############End 16
+
+################Start 17  Remove duplicates so we could only pull unique values from favorite languages
+
+favorite_languages = {
+	'jen':'python', #python 
+	'sarah':'c',
+	'edward':'ruby',
+	'phil':'python',
+}
+
+print("The following language have been menttioned:")
+for language in set(favorite_languages.values()): #here we are looping through the values
+	print(language.title())
+#######Here we remove the extra python since it is a duplicate value
+
+################End 17
+
+################Start 18
+#Going back and cleaning up code
+
+#18-1 before
+name_fav_number = {
+	'Bob':5,
+	'James':6,
+	'Sarah':3
+}
+
+print(f"Bob favorite number is {name_fav_number['Bob']}")
+print(f"James favorite number is {name_fav_number['James']}")
+print(f"James favorite number is {name_fav_number['Sarah']}")
+
+#18-1 after
+
+name_fav_number = {
+	'Bob':5,
+	'James':6,
+	'Sarah':3
+}
+
+for name, fav_number in name_fav_number.items(): #don't forget the items with an s 
+	print(f"{name} favorite number is {fav_number}")
+
+#18-2 doing some more looping
+#Rivers
+
+major_rivers = {'South America':'Amazon River','East Africa':'Nile','China':'Yangtze River'}
+
+for country, river in major_rivers.items():
+	print(f"The {river} runs through {country}.")
+
+#
+
+#18-3 looping an only showing the country
+
+major_rivers = {'South America':'Amazon River','East Africa':'Nile','China':'Yangtze River'}
+
+print(f"The largest rivers are in the following countries:")
+
+for country in major_rivers.keys():
+	print(f"{country}")
+#18-4 looping through all the rivers
+
+major_rivers = {'South America':'Amazon River','East Africa':'Nile','China':'Yangtze River'}
+
+print(f"The largest rivers are called")
+
+for rivers in major_rivers.values():
+	print(f"{rivers}")
+
+#18-4 Polling
+
+polling_status = {'Luke':'Poll Complete','Obi-Wan':'Not taken','Han':'Poll Complete'}
+
+for name, poll_stat in polling_status.items():
+	if poll_stat == 'Not taken':
+		print(f"{name} you have not taken the polling. Please ensure to complete it.")
+	elif poll_stat == 'Poll Complete':
+		print(f"{name} you have completed the poll thank you.")
+
+
+#####################End 18
+
+####################Start 19 Nesting Dictionary 
+#if you want to store multiple dictionaries in a list you could do it with nesting
+#Here we will make 3 dictionaries and store them in a list
+
+alien_0 = {'color':'green','points':'5'}
+alien_1 = {'color':'yellow','points':'10'}
+alien_2 = {'color':'red','points':'15'}
+
+aliens = [alien_0, alien_1, alien_2]
+
+for alien in aliens:
+	print(alien)
+
+####################End 19
+
+####################Start 20 - Create aliens in a list and set the aliens dictionary value
+
+#Make an empty list for storing aliens.
+aliens = []
+
+#Make an empty list for storing aliens.
+aliens = []
+
+#Make 30 green aliens.
+for alien_number in range(30):
+	new_alien = {'color':'green','points':'5','speed':'slow'}
+	aliens.append(new_alien) #appending to the created dictionaries to the aliens list
+
+#show the first 5 aliens
+for alien in aliens[:5]: #print the aliens in aliens list and slice/stop at the 5th alien
+	print(alien)
+print("...")
+
+#show how many aliens have been created.
+print(f"Total number of aliens: {len(aliens)}") #print the length of the values in the alien list
+####################End 20
+
+##########################Start 21 changing the first 3 aliens in the list of aliens
+##########################Adjusting the value in a list
+#Make an empty list for storing aliens.
+aliens = []
+
+#Make 30 green aliens
+for alien_number in range (30):
+	new_alien = {'color':'green','points':'5','speed':'slow'}
+	alliens.append(new_alien)
+
+for alien in alien[:3]:
+	print(alien)
+print("...")
+
+###########################End 21
+
+###############################Start 22
+
+aliens = []
+
+#Make 30 green aliens
+for alien_number in range (30):
+	new_alien = {'color':'green','points':'5','speed':'slow'}
+	aliens.append(new_alien)
+
+for alien in aliens[:3]:
+	if alien['color'] == 'green':
+	   alien['color'] = 'yellow'
+	   alien['speed'] = 'medium'
+	   alien['points'] = 10
+	elif alien['color'] == 'yellow':
+	   alien['color'] ='red'
+	   alien['speed'] = 'fast'
+	   alien['points'] = 15
+
+for alien in aliens[:4]:
+	print(alien)
+
+##############################End 22
+
+##############################Start 23
+#Putting a list in a dictionary
+#suppose we are ordering something from Mc Donalds and we want
+#the items in the kids meal to be listed as some kids meals have
+#Applies or Fries, Apple Juice or Soda, Toys or AR-15's
+#We will put those details in a list and nest that inside or a dictionary like so
+
+#This dictionary stores information about the Pizza
+
+order = {
+	'Meal_8':'Quater Pounder',
+	'Meal_9_Kids_Meal':['Soda','Fries','Burger','Star Wars Toy'],
+	}
+#summarize the order
+
+print(f"You ordered an adult meal {order['Meal_8']} and for the kids meal you want the following")
+
+for items in order['Meal_9_Kids_Meal']:
+	print(f"\t{items}")
+
+#We nested a list inside a dictionary any time you want more than one value to be associated with a single key
+#in a dictionary
+
+################################End 23
+
+##############################Start 24
+
+#Lets nest some more list inside directories
+
+favorite_movies = {
+	'James': ['Episode I – The Phantom Menace','Episode II – Attack of the Clones','Episode III – Revenge of the Sith'],
+	'Bob':['Episode III – Revenge of the Sith','Episode IV – A New Hope'],
+	'Jake': ['Episode VI – Return of the Jedi','Episode V – The Empire Strikes Back']
+}
+
+for fans, fav_movies in favorite_movies.items():
+	print(f"\n{fans} favorite movies are:")
+	for movies in fav_movies:
+		print(f"\t{movies}")
+###############################End 24
+
+
+#################################Start 25
+#Don't nest thing to much as you could use a better or simpler way of doing something
+#################################End 25
+
+###############################Start 26 Nesting Dictionary's in Dictionary?
+
+users = {
+	'Mr.Skywalker': {
+	'first':'Luke',
+	'last':'Skywalker',
+	'location':'Tatoonie',
+	},
+	'Ms.Organa':{
+	'first':'Leia',
+	'last':'Organa',
+	'location':'Alderaan',
+	},
+}
+
+for username, user_info in users.items():
+	print(f"\n Username: {username}")
+	full_name = f"{user_info['first']} {user_info['last']}"
+	location = user_info['location']
+
+	print(f"\tFull name: {full_name.title()}")
+	print(f"\tLocation: {location.title()}")
+
+###########################End 26
+
+
+##################6-7 challenge 1
+#Making 2 dictionaries and nesting them inside a list
+#iterating through the list 
+#looping through the key value and printing them to the screen
+
+people = [ #list
+{                            # 1 person
+'Name':'Luke' , #dictionary key value
+'Skill':'lighsaber combat', #key value
+'Force User Type':'Lightside',
+},
+{                             # 2 person
+'Name':'Solo',
+'Skill':'Blasters',
+'Alliance':'Rebels'
+}]
+
+for person in people: #loop through people list
+	for key, val in person.items(): #loop through key value
+		print(f"{key}:{val}") #print key value
+###################end 6-7 end challenge 1
+
+#####################6-7 challenge 2 Pets
+pets_list = [ #list
+{                            # 1 person
+'Type of Pet':'Betta Fish' , #dictionary key value
+'Owner':'danthetech', #key value
+'Food':'Blood Worms',
+},
+{                             # 2 person
+'Type of Pet':'Wampa',
+'Owner':'Luke',
+'Food':'Rebels'
+}
+
+
+]
+
+for pet in pets_list: #loop through people list
+	for key, val in pet.items(): #loop through key value
+		print(f"{key}:{val}\n") #print key value
+
+######################6-7 challenge 2 pets end
+
+######################6-7 challenge 3 favorite number start
+
+favorite_numbers = {
+	'Palpatine':['66'],
+	'Yoda':['1000','101']
+}
+for person, fav_number in favorite_numbers.items():
+	print(f"\n{person} favorite numbers are:")
+	for number in fav_number:
+		print(f"\t{number}")
+
+########################end challenge 3 end
+
+#######################6-7 challenge 4 cities
+
+city = { 'Coruscant': {'Population': 'Three trillion','famous for':'Jedi Temple'},
+                'Alderaan': {'Population': '0','famous for':'asteroid fields'}}
+
+for key, value in city.items():
+	print(f"\n {key} has a Population of {value['Population']} and it is famous for its {value['famous for']}.")
+
+#######################end 6-7 challenge end cities
+
