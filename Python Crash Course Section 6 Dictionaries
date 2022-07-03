@@ -40,7 +40,7 @@ alien_0 = {'color':'green', 'points':5}
 new_points = alien_0['points']
 print(f"You just earned {new_points} points!")
 
-#Adding New Key-Value Pairs
+
 ############################End Part 4
 
 ############################Part 5 Adding Key-Value pairs
@@ -350,7 +350,7 @@ print(f"The largest rivers are called")
 for rivers in major_rivers.values():
 	print(f"{rivers}")
 
-#18-4 Polling
+#18-5 Polling
 
 polling_status = {'Luke':'Poll Complete','Obi-Wan':'Not taken','Han':'Poll Complete'}
 
@@ -383,8 +383,6 @@ for alien in aliens:
 #Make an empty list for storing aliens.
 aliens = []
 
-#Make an empty list for storing aliens.
-aliens = []
 
 #Make 30 green aliens.
 for alien_number in range(30):
@@ -400,7 +398,7 @@ print("...")
 print(f"Total number of aliens: {len(aliens)}") #print the length of the values in the alien list
 ####################End 20
 
-##########################Start 21 changing the first 3 aliens in the list of aliens
+##########################Start 21 listing the first 3 aliens in the list of aliens
 ##########################Adjusting the value in a list
 #Make an empty list for storing aliens.
 aliens = []
@@ -408,9 +406,9 @@ aliens = []
 #Make 30 green aliens
 for alien_number in range (30):
 	new_alien = {'color':'green','points':'5','speed':'slow'}
-	alliens.append(new_alien)
+	aliens.append(new_alien)
 
-for alien in alien[:3]:
+for alien in aliens[:3]:
 	print(alien)
 print("...")
 
