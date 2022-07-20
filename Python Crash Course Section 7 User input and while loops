@@ -1,0 +1,372 @@
+#Download code from GITHUB
+#INSTALL 
+##1 PYCHARM community edition
+#Input
+#Using the input function allows us to process data and return a value
+message= input("Input your age:")
+print(f"You're {message}")
+##1 end
+
+#2
+#Here we place the input into name below that you call hello and print hello
+name = input("Please enter your name: ")
+print(f"\nHello, {name}!")
+#2 end
+
+#3 Multi-line string
+#the operator += takes the string that was assigned to prompt and adds the new string onto the end.                                                                                                                                                                          
+prompt = "If you tell us who you are, we can personalize the message you see."
+prompt += "\n What is your first name? "
+
+name = input(prompt)
+print(f"\nHello, {name}!")
+
+#3 end
+
+#4 working with number using int()
+#when you input 23 in part 1 python treated your age 23 as a 
+#string so you need to use int() so it accepts input as 
+#as a number
+
+#You must convert the input to a numerical value to do calculations and comparisions
+
+age = input("How old are you? ")
+
+age = int(age)
+
+if age >= 18
+	print(f"You could drink")
+	else
+	print(f"You are to young to drink")
+
+##4 determining if a number is even or odd
+#we must specify the data type as an int if we plan to do any math
+
+number = input("Enter a number to see if it is even or odd: ")
+number = int(number)
+
+if number % 2 == 0:
+    print(f"\nThe number {number} is even. ")
+else:
+    print(f"\nThe number {number} is odd. ")
+
+#4
+
+#5
+starship_rental = input("Enter the name of a starship you want to fly: ")
+print(f"\nWe are preparing the {starship_rental}")
+#5 end
+
+#6
+
+reservations = input("How many people are coming to party?: ")
+numberofppl = int(reservations)
+
+if numberofppl > 10:
+    print(f"\nWe will need to reserve more tables")
+else:
+    print(f"\nWe will have the tables ready")
+
+#end 6
+
+#7
+
+#7-3 multiple of 10
+
+number = input("Input a number: ")
+numbercovertedtoint = int(number)
+
+if numbercovertedtoint % 10 == 0:
+    print(f"\nThe number is a multiple of ten.")
+else:
+    print(f"\nYour number is not a multiple of 10.")
+
+#End 7
+
+
+
+#8
+#Whole Loop
+#The for loop takes a collection of items and executes a block of code once
+#for each item in the collection. In contrast the while loop runs as long as
+#or while, a certain condition is true.
+
+#continue from 1 and keep running as long as the value of number is less than or equal to 5
+number = 1
+while number <= 5:
+    print(number)
+    number += 1
+#End 8
+
+
+#9
+#This program works well, except that it prints the word "quit"
+#stopping a program
+
+prompt = "\nI will echo what you say"
+
+prompt += "\nEnter 'quit' to end the program: "
+
+message = ""
+
+while message != 'quit':
+    message = input(prompt)
+    print(message)
+##End 9
+
+
+#10
+#Flag a Flag allow you to set 1 value that will end the whole game
+#We could create an variable with a boolen value of true
+#It runs before the while loop and if the variable is set to
+#false while running the loop it will stop the program(game over)
+#So the program will run if the booleen value is true
+
+active = True
+while active:
+    message = input("\n Input a message and I echo it: ")
+
+    if message == 'quit game':
+        active = False
+        print(f"Game Over")
+    else:
+        print("\n Do you want to keep playing? If so input quit game")
+        print("\n Enter something else: ")
+##End 10
+
+#11
+#while loop immediately you could use break and
+#you will exit the program similar to what we just did
+
+promptforuser = "\nPlease enter the name of a Star Wars Character you like."
+promptforuser += "\n(Enter 'quit' when you are finished): " #adds the string to prompt
+
+while True:
+    character = input(promptforuser)
+
+    if character == 'quit':
+        break
+    else:
+        print(f"You like {character.title()}.")
+
+#End 11
+
+#12
+#Using a continue in a loop
+#You could use a continue statement to return to begininning of the loop
+#based on the results of a conditional test
+
+current_number = 0
+while current_number < 10:
+    current_number += 1
+    if current_number % 2 == 0: #if the number is a multiple of 2 "continue" so go back to the top of the while loop
+         continue               #if the number is odd let it go down and print that odd number
+
+    print(current_number) #prints 1 because 1 is not a multiple of 2
+                          #next the number 1 is taken to the top added and 2.
+                          #You will not print an even number
+#end 12
+
+#13
+
+#Avoiding Infinite loop that run forever
+x = 3
+while x <= 5:
+	print(x)
+	x += 1
+
+# This loop runs forever!
+x = 1
+while x <= 5:
+	print(x)
+
+#end 13
+
+#14 challenge
+#Mc Donalds Order
+ 
+
+#ensure when using scripting python to convert tabs to spaces or this will not run
+full_order = [""]
+active = True
+while active:
+    message = input("\n Input an item from our menu: ")
+
+    if message == 'quit':
+        active = False
+        print(f"Exiting")
+    else:
+        print(f"\n Adding {message} to your order. Would you like more items? If so input an item else enter quit")
+        full_order.append(f"{message}")
+        print(full_order)
+#End 14
+
+#15
+#Paying for ticket
+
+
+number = input("Input a number: ")
+numbercovertedtoint = int(number)
+
+numbercovertedtoint = 18
+if numbercovertedtoint < 12:
+	print("You pay $0 ")
+elif numbercovertedtoint > 12:
+	print("You must pay $90")
+else:
+	print("Input a valid age")
+
+
+#7-7 infinity loop
+x = 1
+while x <= 5:
+	print(x)
+
+x = 1
+while x <=5:
+	print(x)
+
+
+# 7-7 end
+
+#7-8
+active = True
+while active:
+    message = input("\n What is your favorite food? Enter none to none: ")
+
+    if message == 'none':
+        active = False
+        print(f"Are you a robot?")
+    else:
+        print(f"\n {message} taste good!")
+        print("\n Do you want to keep playing?")
+        print("\n Enter something else: ")
+
+#############Using a while loop with List and Disctionaries
+#check a list of users to ensure they are not twitter bots
+users = ["John","Jake","Jesus"]
+verified_users = []
+
+#verified each user until there no more unconfirmed users.
+#move each verified user into the list of confirmed users.
+
+while users:
+    processed_user = users.pop()
+    print(f"Verifying user: {processed_user.title()}")
+    verified_users.append(processed_user)
+
+#Display all verified_users.
+    print(f"\nThe following users have been confirmed: ")
+    for checked_user in verified_users:
+        print(f"{checked_user.title()}")
+
+##################7-8 end
+
+
+###############8 Removing all instances of a specific value from a list with remove function
+
+
+Movies = ['Avatar','Avengers:Endgame','Titanic']
+print(Movies)
+
+while 'Titanic' in Movies:
+    Movies.remove('Titanic')
+
+print(Movies)
+
+################end 7-8
+
+
+################start 7-9 Filling a Dictionary with user input
+
+responses = {}
+
+#Set a flag to indicate that polling is active
+polling_active = True
+
+while polling_active:
+	#prompt for the person's name and response
+	name = input("\nWhat is your name?")
+	response = input("Which mountain would yo like to climb someday?")
+
+	#Store the response in the dictionary.
+	responses[name] = response
+
+	#Find out if anyone else is going to take the poll.
+	repeat = input("Would you like to let another person respond? (yes/ no).")
+	if repeat == "no":
+		polling_active = False
+
+	#Polling is complete. Show the results.
+	print("\n--Poll Results----")
+	for name, response in responses.items():
+		print(f"{name} would like to climb {response}.")
+
+##################end 7-9
+
+################7-10 Deli
+
+sandwiches = ["Grilled Cheese","Ham Sandwich","Ice Cream Sandwich"]
+completed_sandwiches = []
+
+#verified each user until there no more unconfirmed users.
+#move each verified user into the list of confirmed users.
+
+while sandwiches:
+    processed_sandwiches = sandwiches.pop()
+    print(f"Processed sandwiches: {processed_sandwiches.title()}")
+    completed_sandwiches.append(processed_sandwiches)
+
+#Display all verified_users.
+    print("\nThe following sandwiches have been completed: ")
+    for completed_sandwiche in completed_sandwiches:
+        print(f"{completed_sandwiche}")
+
+#################end 7-10
+
+#################start 7-11
+
+
+
+Mc_Donalds_Menu = ['Quater Pounder','Nuggest','Ice-Cream','AR-15']
+print(Mc_Donalds_Menu)
+
+print(f"The Ice-Cream machine is broken again.")
+
+while 'Ice-Cream' in Mc_Donalds_Menu:
+    Mc_Donalds_Menu.remove('Ice-Cream')
+
+print(f"Items available on the menu are {Mc_Donalds_Menu}")
+
+
+
+
+##################end 7-11
+
+
+##################7-12
+
+responses = {}
+
+#Set a flag to indicate that polling is active
+polling_active = True
+
+while polling_active:
+	#prompt for the person's name and response
+	name = input("\nWhat is your name?")
+	response = input("What is your dream vacation?: ")
+
+	#Store the response in the dictionary.
+	responses[name] = response
+
+	#Find out if anyone else is going to take the poll.
+	repeat = input("Would you like to let another person respond? (yes/ no).")
+	if repeat == "no":
+		polling_active = False
+
+	#Polling is complete. Show the results.
+	print("\n--Poll Results----")
+	for name, response in responses.items():
+		print(f"{name} would like to go on vacation to {response}.")
+
+#####################end 7-12
