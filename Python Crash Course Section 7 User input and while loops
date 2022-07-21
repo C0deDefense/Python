@@ -20,7 +20,6 @@ prompt += "\n What is your first name? "
 
 name = input(prompt)
 print(f"\nHello, {name}!")
-
 #3 end
 
 #4 working with number using int()
@@ -34,12 +33,12 @@ age = input("How old are you? ")
 
 age = int(age)
 
-if age >= 18
-	print(f"You could drink")
-	else
-	print(f"You are to young to drink")
-
-##4 determining if a number is even or odd
+if age >= 18:
+    print(f"You could drink")
+else:
+    print(f"You are to young to drink")
+#4 end
+##4.1 determining if a number is even or odd
 #we must specify the data type as an int if we plan to do any math
 
 number = input("Enter a number to see if it is even or odd: ")
@@ -50,7 +49,7 @@ if number % 2 == 0:
 else:
     print(f"\nThe number {number} is odd. ")
 
-#4
+#4.1
 
 #5
 starship_rental = input("Enter the name of a starship you want to fly: ")
@@ -69,9 +68,8 @@ else:
 
 #end 6
 
-#7
 
-#7-3 multiple of 10
+#7 multiple of 10
 
 number = input("Input a number: ")
 numbercovertedtoint = int(number)
@@ -175,10 +173,6 @@ while x <= 5:
 	print(x)
 	x += 1
 
-# This loop runs forever!
-x = 1
-while x <= 5:
-	print(x)
 
 #end 13
 
@@ -216,20 +210,10 @@ elif numbercovertedtoint > 12:
 else:
 	print("Input a valid age")
 
-
-#7-7 infinity loop
-x = 1
-while x <= 5:
-	print(x)
-
-x = 1
-while x <=5:
-	print(x)
+#end 15
 
 
-# 7-7 end
-
-#7-8
+#start 16
 active = True
 while active:
     message = input("\n What is your favorite food? Enter none to none: ")
@@ -241,7 +225,9 @@ while active:
         print(f"\n {message} taste good!")
         print("\n Do you want to keep playing?")
         print("\n Enter something else: ")
+#end 16
 
+#start 17
 #############Using a while loop with List and Disctionaries
 #check a list of users to ensure they are not twitter bots
 users = ["John","Jake","Jesus"]
@@ -260,10 +246,10 @@ while users:
     for checked_user in verified_users:
         print(f"{checked_user.title()}")
 
-##################7-8 end
+##################17 end
 
 
-###############8 Removing all instances of a specific value from a list with remove function
+###############18 Removing all instances of a specific value from a list with remove function
 
 
 Movies = ['Avatar','Avengers:Endgame','Titanic']
@@ -274,10 +260,10 @@ while 'Titanic' in Movies:
 
 print(Movies)
 
-################end 7-8
+################end 18
 
 
-################start 7-9 Filling a Dictionary with user input
+################start 19 Filling a Dictionary with user input
 
 responses = {}
 
@@ -302,9 +288,9 @@ while polling_active:
 	for name, response in responses.items():
 		print(f"{name} would like to climb {response}.")
 
-##################end 7-9
+##################end 19
 
-################7-10 Deli
+################20 Deli
 
 sandwiches = ["Grilled Cheese","Ham Sandwich","Ice Cream Sandwich"]
 completed_sandwiches = []
@@ -322,9 +308,9 @@ while sandwiches:
     for completed_sandwiche in completed_sandwiches:
         print(f"{completed_sandwiche}")
 
-#################end 7-10
+#################end 20
 
-#################start 7-11
+#################start 21
 
 
 
@@ -341,10 +327,10 @@ print(f"Items available on the menu are {Mc_Donalds_Menu}")
 
 
 
-##################end 7-11
+##################end 21
 
 
-##################7-12
+##################22
 
 responses = {}
 
@@ -369,4 +355,4 @@ while polling_active:
 	for name, response in responses.items():
 		print(f"{name} would like to go on vacation to {response}.")
 
-#####################end 7-12
+#####################end 22
