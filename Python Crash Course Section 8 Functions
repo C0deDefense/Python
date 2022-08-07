@@ -1,0 +1,635 @@
+################Function1
+#We could name a Function which is made to do a specific task
+#Here we have greet_user()
+#the code after : will run when the function is called
+
+def greet_user():
+	"""Display as simmple greeting."""
+	print("Hello!")
+
+greet_user()
+
+#######################end 1
+
+######################start 2
+#Here we define the function greet_user and it will be passed
+#the greet_user() the parameters require a username 
+#the argument it receives will be proceeds and in this case printed out
+
+def greet_user(username):
+	"""Display a simple greeting"""
+	print(f"Hello, {username.title()}!")
+
+#here we call the function greet_user and inside the parameters aka inside ()
+#we input jesse which jesse is the argument think of it will provide feedback
+#this argument is passed from a function call to the function
+greet_user('jesse')
+
+########################end 2
+
+#######################start 3
+
+def warning_to_save(filename):
+	#will shutdown a computer
+	print(f"save {filename} now")
+
+warning_to_save('doc1')
+
+######################end 3
+
+#####################start 4
+
+def fav_lang(lang):
+	print(f"You favorite language is {lang}")
+	#print your fav lang
+
+fav_lang('Python')
+
+###################end 4
+
+###################Passing argument start 5
+
+#Multiple Function calls
+#You could call a function as many times as you want
+#here we pass describe_starwarscharacter() an argument an argument
+#python will match the name of the character we provide with the
+# charactername with the parameter
+#
+
+def describe_starwarscharacter(charactername, trait):
+	"""Display information about a character"""
+	print(f"\nMy favorite character is {charactername}.")
+	print(f"A unique trait my character has is that they {trait}.")
+
+describe_starwarscharacter('Anakin','Hate sand')
+
+#so here anakins will be passed as an argument
+#python will match anakin with charactername and it will fill 
+#the character name variable
+
+##################################end 5
+
+
+###########################start 6 Order Matters
+
+#If you get unexpected results if you mix up the order of your argument 
+#in function calls
+
+def describe_starwarscharacter(charactername, trait):
+	"""Display information about a character."""
+	print(f"\nMy favorite character is {charactername}.")
+	print(f"A unique trait my character has is that they {trait}.")
+
+describe_starwarscharacter('Hates sand','Anakin')
+#Now this is out of order
+
+###########################end 6
+
+
+###########################start 7 keyword Arguments
+###########example 1
+
+#Keywords argument is a name-value pair that you pass to a function
+#You directly associate the name and the value within the argument
+#so when you pass the argument to the function there's no confusion
+#we basically explicitly associate the name with the value
+
+
+def describe_starwarscharacter(charactername, trait):
+	#display information about a character
+	print(f"\nMy favorite character is {charactername}.")
+	print(f"A unique trait my character has is that they {trait}.")
+
+describe_starwarscharacter(charactername="Anakin", trait="Hates sand")
+
+######example 2
+
+def describe_starwarscharacter(charactername, trait):
+	#display information about a character
+	print(f"\nMy favorite character is {charactername}.")
+	print(f"A unique trait my character has is that they {trait}.")
+
+describe_starwarscharacter(trait="Hates sand", charactername="Anakin",)
+
+########################end 7 keyword arguments
+
+#######################Default values start 8
+#When you make a function you can define a default value for each parameter
+#if an argument for parameter is provided like in this case below 
+#are force sensitive. We must specify the charactername="Anakin" because 
+#order matters
+
+def describe_starwarscharacter(charactername, trait="are force sensitive"):
+	#display information about a character
+	print(f"\nMy favorite character is {charactername}.")
+	print(f"A unique trait my charcter has is that they {trait}.")
+
+describe_starwarscharacter(charactername="Anakin")
+
+
+########################end 8
+
+########################start 9 Function call code layout styles
+
+#The way you position your arguments can be like the following
+#note they all produce the same output
+#knowing this is important because you will read some else code
+#and everyone has there own style
+
+
+
+def describe_starwarscharacter(charactername, trait):
+	print(f"\nMy favorite character is {charactername}.")
+	print(f"A unique trait my character has is that they {trait}.")
+
+
+describe_starwarscharacter(charactername="Anakin",trait="hate sand")
+
+
+#or
+
+describe_starwarscharacter('Anakin')
+
+#
+
+describe_starwarscharacter(charactername='Anakin')
+
+#
+describe_starwarscharacter(trait="hate sand", charactername="Anakin")
+
+#######################end 9
+
+#####################Start 10 replicating Argument errors
+#This code will produce an error because no arguments were provided
+#the error will tell us this
+
+def describe_starwarscharacter(charactername, trait):
+	#display information about a character
+	print(f"\nMy favorite character is {charactername}.")
+	print(f"A unique trait my character has is that they {trait}.")
+
+describe_starwarscharacter()
+
+
+######################end 10
+
+
+########################Start 11 challenge that accepts arguments
+
+#8-3 Buy a computer
+#Here we are taking a custom order for a computer order online
+#Pretend we used the input function we just learned about to take the following
+#Name, Computer_Brand, Operating_system and after we input that in our output
+#Now pretend that output is a generated email that will go to the customer
+#After this is input in our back in database
+#Now you are starting to expand your understand 
+
+
+def describe_computer_item(Name, Computer_Brand, Operating_system):
+	print(f"\n{Name}, we have a {Computer_Brand} computer in our inventory.")
+	print(f"We will load the following {Operating_system} operating system for your custom computer.")
+
+describe_computer_item(Name="Dan",Computer_Brand="Dell", Operating_system="Linux")
+
+
+#########################End 11
+
+
+########################Start 12 challenge using a default value
+
+#Here the customer didn't specify the OS so we will choose Windows
+def describe_computer_item(Name, Computer_Brand, Operating_system="Windows"):
+	print(f"\n{Name}, we have a {Computer_Brand} computer in our inventory.")
+	print(f"We will load the following {Operating_system} operating system for your custom computer.")
+
+describe_computer_item(Name="Dan",Computer_Brand="Dell")
+
+
+##########################End 12
+
+
+#########################start 13 Returned Values
+
+#A function could process data and then return a value(s)
+#You could call a function that returns you need to provide a variable that the return 
+#value can be assigned to.
+
+def get_customername(first_name, last_name):
+	full_name = f"{first_name} {last_name}"
+	return full_name.title()
+
+concat_name = get_customername('Dan','TheTech')
+print(concat_name)
+
+###########################end 13
+
+
+#########################start 14 Making an Argument Optional
+
+def get_customername(first_name, last_name, middle_name=''):
+	if "middle_name":
+		full_name=f"{first_name} {middle_name} {last_name}"
+	else:
+		full_name=f"{first_name} {last_name}"
+	return full_name.title()
+
+concat_name = get_customername('Dan','TheTech','Rex')
+concat_name = get_customername('Dan','TheTech')
+print(concat_name)
+
+##########################end 14
+
+#############################start Return Dictionary 15
+
+#a function can return values like dictionaries
+#we place the values in a dictionary
+#we return the whole dictionary for the entire name
+
+
+def get_customername(first_name, last_name):
+	person = {'first':first_name,'last':last_name}
+	return person
+
+concat_name = get_customername('Dan','TheTech')
+print(concat_name)
+
+#############################end 15
+
+###############################Using a dictionary and placeholder 16
+#You can easily extend this function to accept optional values
+#you could store the age as optional with a special Value None
+#python will take that as None is optional.You need to use None it is a placeholder
+def get_customername(first_name, last_name,age=None):
+	person = {'first':first_name,'last':last_name}
+	if age:
+		person['age'] = age #if an age is provided it will be appended to the person dictionary
+	return person
+
+customerinfo =get_customername('dan','thetech',age=27)
+print(customerinfo)
+
+################################end 16
+
+##################################start 17 Function with a while loop run with PyCharm
+
+#we have a function which will do the following when called
+def get_formatted_name(first_name, last_name):
+	full_name = f"{first_name} {last_name}"
+	return full_name.title()
+
+#Here we set the conditions
+while True:
+	print("\Please tell me your name: ")
+	print("(enter 'q' at any time to quit)")
+
+	f_name = input("First name:")
+	if f_name == 'q':
+		break
+
+	l_name = input("Last name: ")
+	if l_name == 'q':
+		break
+#The argument received from the input will be passed to the function
+	formatted_name = get_formatted_name(f_name, l_name)
+	print(f"\nHello, {formatted_name}!")
+#the is a while loop with a break to allow the user to break out of the loop
+
+##############################City Name exercise 18 start
+
+def cityname(city, country):
+	combined = f"{city} , {country}"
+	return combined
+
+concat_name = cityname('Dan','TheTech')
+print(concat_name)
+
+##############################City Name exercise 18 end
+
+##############################Songs start
+def songs(band, song,totalsongs=None):
+	song_info = {'band_name':band,'Song_name_':song}
+	if totalsongs:
+		song_info['totalsongs'] = totalsongs #if an age is provided it will be appended to the person dictionary
+	return song_info
+
+returned_song_info =songs('metallica','one', totalsongs=151)
+print(returned_song_info)
+
+##############################Songs end 18
+
+################################Start band info with Pycharm input 19
+#band and songname and return these combined and optional none to return number of songs
+
+
+def songs(band, song,totalsongs=None):
+	song_info = {'band_name':band,'Song_name_':song,'totalsongs_':totalsongs}
+	return song_info
+
+#Here we set the conditions
+while True:
+	print("\Please tell me your favorite band: ")
+	print("(enter 'q' at any time to quit)")
+
+	b_name = input('band name: ')
+	if b_name == 'q':
+		break
+
+	s_name = input('Song name: ')
+	if s_name == 'q':
+		break
+	t_total = input('Total_Songs: ')
+	if t_total == 'q':
+		break
+
+#The argument received from the input will be passed to the function
+	band_info = songs(b_name, s_name, t_total)
+	print(f"\nYour favorite band is , {band_info}!")
+
+################################end 19
+
+###########################Passing a list 20
+#Passing a list
+
+#function we called will take the argument and pass it down
+def say_hi(names):
+	for name in names:
+		msg = f"Hello, {name.title()}!"
+		print(msg)
+
+#list
+username = ['Dan','Luke','Darth']
+
+#call function
+say_hi(username)
+
+############################end passing a list 20
+
+###############################start Modifying a list 21
+
+#start with some design that need to be printed
+unprinted_designs = ['phone case','robot pendant','dodecahedron']
+completed_models = []
+
+#simulate printing each design, until none are left
+#Move each design to completed_models after printing.
+while unprinted_designs:
+	current_design = unprinted_designs.pop() #pop removed the item in the list
+	print(f"Printing model: {current_design}")
+	completed_models.append(current_design) #here we append the popped item into the completed_models
+
+#Display all complete models.
+print("The following models have been printed.")
+for completed_models in completed_models:
+	print(completed_models)
+##############################end Modifying list 21 end
+
+################################start 22
+#We set up 2 functions one for unprinted designs and one for printed designs
+#We pass the two list in the first arguments
+#the second function we will pass the completed models list that is a list with compeleted prints
+#
+
+def print_models(unprinted_designs, completed_models):
+	while unprinted_designs:
+		current_design = unprinted_designs.pop()
+		print(f"Printing model: {current_design}")
+		completed_models.append(current_design)
+
+def show_completed_models(completed_models):
+	print("\nThe following models have been printed: ")
+	for completed_models in completed_models:
+		print(completed_models)
+
+unprinted_designs = ['phone case','robot pendant','dodecahedron']
+completed_models = []
+
+print_models(unprinted_designs, completed_models)
+show_completed_models(completed_models)
+################################end 22
+
+######################Preventing a function from modifying a list 23
+#Sometimes you want to retain your orginal list you could use
+#[:] to send a copy of the list to a function
+def print_models(unprinted_designs, completed_models):
+	while unprinted_designs:
+		current_design = unprinted_designs.pop()
+		print(f"Printing model: {current_design}")
+		completed_models.append(current_design)
+
+def show_completed_models(completed_models):
+	print("\nThe following models have been printed: ")
+	for completed_models in completed_models:
+		print(completed_models)
+
+unprinted_designs = ['phone case','robot pendant','dodecahedron']
+completed_models = []
+
+print_models(unprinted_designs[:], completed_models)
+show_completed_models(completed_models)
+
+##############################end 23
+
+################################start 24
+#3rd we pass our argument down the function
+def msg_function(msg_list):
+	for message in msg_list:
+		print(f"{message}")
+
+
+#1st we make our list
+msg_list = ['Hello','How are you?']
+#2nd we pass our list to our function
+msg_function(msg_list)
+
+################################end 24
+
+#################################Start 25 msg 2
+
+#2nd I define what my function will do once it gets an argument
+def message_app(message):
+	while message:
+		message_in_trans = message.pop()
+		print(f"Sending {message_in_trans}")
+		sent_message.append(message_in_trans)
+
+
+	print(f"\nThe following msg's have been sent.")
+	for sent in sent_message:
+		print(f"{sent}")
+
+#1st make your list
+send_message = ['Hi','How are you?']
+sent_message = []
+message_app(send_message)
+
+#################################end 25 msg 2
+
+
+################################start 26 msg 3
+
+def message_app(message):
+	while message:
+		message_in_trans = message.pop()
+		print(f"Sending {message_in_trans}")
+		sent_message.append(message_in_trans)
+
+
+	print(f"\nThe following msg's have been sent.")
+	for sent in sent_message:
+		print(f"{sent}")
+
+#1st make your list
+send_message = ['Hi','How are you?']
+sent_message = []
+message_app(send_message[:]) ###here we are making a copy we could use 
+						     #Note that dispite removing values with pop later
+						     #we are not alterning the original list 
+						     #we are only altering the copied list
+
+print(send_message)
+
+##################################start 26 pizza 3
+
+###################################Passing an Arbitrary Number of Arugments
+#Sometimes we don't know how many arguments a function needs to accept
+#what if we wanted our function to accept 1 or many arguments
+#we could put an asterisks before the parameter name which will
+#could python to make an empty tuple
+#even if only one value is put in the tuple Python will pack the arguments into a tuple
+#even if the function only gets one value
+
+
+def make_pizza(*toppings):
+	print("\nMaking a pizza with the following toppings:")
+	for topping in toppings:
+		print(f" {topping}")
+#an asterisks before the parameter name which will
+#could python to make an empty tuple
+#even if only one value is put in the tuple Python will pack the arguments into a tuple
+
+make_pizza('pepperoni')
+make_pizza('mushrooms','green peppers','extra cheese')
+################################################end 26
+
+
+##########################################start 27 mixing positions
+###############################################Mixing Positional and Arbitrary Arguments
+#He we accept arguments but the size of the Pizza is first. Python matchs  positional and keywords arguments
+def make_pizza(size, *toppings):
+	print(f"\nMaking a {size}-inch pizza with the following toppings:")
+	for topping in toppings:
+		print(f"- {toppings}")
+
+make_pizza(16, 'pepperoni')
+make_pizza(12, 'mushrooms','green peppers','extra cheese')
+
+#########################################end 27
+
+############################################start 28
+
+#we pass the argumetns and build the user_info dictionary
+def build_profile(first,last, **user_info): #here we use the double ** to tell python to make a list user_info dictionary
+	user_info['first_name'] = first #base on the position the name get placed in our list with the name-value pair
+	user_info['last_name'] = last
+	return user_info
+
+#1st we call our funciton and send the arguments
+user_profile = build_profile('albert','einstein',location='princeton',field='physics')
+
+print(user_profile)
+
+##############################################end 28
+
+
+
+############################################start challenge 29 sandwiches
+
+
+def make_sandwiches(size, *toppings):
+	print(f"We are making your {size} sandwich.")
+	for topping in toppings:
+		print(f"adding {topping}")
+
+	print(f"\nYour sandwich is ready!")
+
+make_sandwiches("6", "Tuna", "Lettice")
+
+
+############################################end challenge 29 sandwiches
+
+
+############################################start challenge 30 your profile
+
+
+def build_profile(first, last, favorite, **user_info):
+	user_info['first_name'] = first
+	user_info['last_name'] =last
+	user_info['favorite_thing'] = favorite
+	return user_info
+
+user_profile = build_profile('Luke','Skywalker','Coding in Python')
+print(user_profile)
+
+############################################end challenge 30 your profile
+
+############################################start challenge 31 car info
+def make_car(brand='', type='', **car_information):
+	car_information['brand_name'] = brand
+	car_information['type_name'] = type
+	return car_information
+
+car = make_car('subaru','outback',color='blue',tow_package='True', other='heated seats')
+print(car)
+############################################end challenge 31 car info
+
+############################################starting 32 your functions in Modules
+#Importing files
+#we first create a module in pycharm move over to pycharm and make a pizza.py module
+
+#main
+import pizza
+pizza.make_pizza(16, 'pepperoni')
+
+#pizza
+def make_pizza(size, *toppings):
+    print(f"\nMaking a {size}-inch pizza with the following toppings")
+    for topping in toppings:
+        print(f"{topping}")
+
+####################################end 32
+
+############################################starting 33 importing a specific function
+
+#main requesting a certain make_pizza module
+from module_name import function_name
+
+from pizza import making_pizza
+pizza.make_pizza(16, 'pepperoni')
+
+
+###########################################end 33 importing a specific function
+
+############################################starting 34 Giving functions an alias
+
+#main giving alias to pizza module 
+from pizza import make_pizza as make_mp
+
+mp(16, 'pepperoni')
+mp(12, 'mushrooms','green pepper')
+############################################end 34 Giving functions an alias
+
+############################################starting 35 importing all functions in a module
+
+#importing all modules
+from pizza import *
+
+make_pizza(16, "pepperoni")
+make_pizza(12, 'mushrooms')
+
+############################################starting 35 importing all functions in a module
+
+#recommendation ensure to put a comment/description for every module
+#Don't always import every module because someone might write a module that will have the
+#same name and overwrite yours
+#I recommend just importing the module you need it is up to you.
+
