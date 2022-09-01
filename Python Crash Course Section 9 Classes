@@ -1,0 +1,1046 @@
+#Python Crash Course
+#Let make Classes
+#powerpoint
+#that represent real-world things such as a dog
+
+#Objects based on the classes
+
+#Creating a class Dog class will store a name and age and we will give a dog the ability to sit a roll
+
+#What is the difference between a method and function?
+#Note Methods are associated with the objects of the class they belong to. Functions are not associated with any object.
+
+#The self refers to the current object.
+class Dog: #we define the class as Dog we also capitialized it to indicate it is a class
+	#we init and create an instance which is a single occurrence of something here that is self
+	def __init__(self, name, age): #the init method(because the ways we call it and how it initializes) will initialize it and create a new instance of it based on 
+		"""Initialize name and age attributes""" #the dog class
+		self.name = name #putting the name takes the value associated with the parameter name
+		#and assigns it to the variable name which is then attached to the instance
+		self.age = age
+
+	def sit(self):#we are defining a functions and passing the instance of dog aka self
+		"""Simulate a dog sitting in response to a command."""
+		print(f"{self.name} is now sitting.") #here we a adding self.name which is an attribute of self
+
+	def roll_over(self): #this is a method
+		"""Simulate rolling over in response to a command."""
+		print(f"{self.name} rolled over!")
+
+#note the self parameter is required in the method definition and it must come first before the other parameters
+#python calls this method later(to creat a instance of dog python will call the init we will pass the arguments
+#self is passed automatically.
+#the two variables will have a prefix self variables access like this are called attributes
+
+##Making an instance from a class
+#Think of a class as a set of instructions for how to make an instance.
+
+
+
+my_dog = Dog('Willie', 6)
+my_dog.sit()
+
+#first send to class
+#second create instances of everything you want to work with
+#third create method which will use the attributes instances to do a specific task
+#fourth is to call class which will return instances of everything/class,attributes
+#take variable with instances my_dog and pass that to the method which will look at the instances
+#and run a specific task with them
+
+#######################################################################################Task 2
+
+
+#Creating Multiple instances 
+my_dog = Dog('Willie',6)
+your_dog = Dog('Lucy',3)
+
+
+print(f"My dog's name is {my_dog.name}.")
+print(f"My dog is {my_dog.age} years old.")
+my_dog.sit()
+
+print(f"\nYour dog's name is {your_dog.name}.")
+print(f"Your dog is {your_dog.age} years old.")
+your_dog.sit()
+
+######################################################################################Task 3
+
+##################################challenge 1 and 2
+#restaurant name
+#cuisine type
+
+#method describe_restaurant() 
+#prints 2 peaces of information
+
+#open_restaurant()
+#prints msg the restaurant is open
+
+#call both methods
+
+#Make p code
+#restaurant name
+#cuisine type
+
+#method describe_restaurant() 
+#prints 2 peaces of information
+
+#open_restaurant()
+#prints msg the restaurant is open
+
+#call both methods
+
+class restaurant:
+	def __init__(self, name, cuisine):
+		self.name = name
+		self.cuisine = cuisine
+
+	def describe_restaurant(self):
+		print(f"\n{self.name} has great food.")
+		print(f"{self.name} menu compose of {self.cuisine}.")
+
+	def open_restaurant(self):
+		print(f"{self.name} is open for business.")
+
+
+restaurant_1 = restaurant('In and Out','Fast Food') #instance in a variable
+restaurant_1.describe_restaurant() #call instance and method in a class
+restaurant_1.open_restaurant() #call instance and method in a class
+print(f"My favorite restaurant is {restaurant_1.name}.")
+
+
+restaurant_2 = restaurant('Panda Express','Chinese Food')
+restaurant_2.describe_restaurant() #call instance and method in a class
+restaurant_2.open_restaurant() #call instance and method in a class
+
+
+###################################challenge 1 and 2
+
+
+
+##################################challenge 3
+
+class Account:
+	def __init__(self, name, location, music, movies):
+
+		self.name = name
+		self.location = location
+		self.music = music
+		self.movies = movies
+
+	def describe_person(self):
+		print(f"\n{self.name} and lives in {self.location} likes to listen to {self.music} and watch {self.movies}")
+
+person1 = Account('Danthetech', 'US', 'The Empires March', 'Star Wars')
+person1.describe_person()
+
+
+
+##################################challenge 3
+
+
+#######################################start 5
+#Working with Classes and Instances
+
+#Here we will print the year make and model
+class Car:
+
+	def __init__(self, make, model, year):
+		self.make = make
+		self.model = model
+		self.year = year
+
+	def get_description_name(self):
+		long_name = f"{self.year} {self.make} {self.model}"
+		return long_name.title()
+
+my_new_car = Car('audi','a4','2019')
+print(my_new_car.get_description_name())
+
+#########################################end 5
+
+#######################################start 6
+
+#Setting a Default value for an attribute
+#here we set self.odometer_reading = 0
+class Car:
+	def __init__(self, make, model, year):
+		self.make = make
+		self.model = model
+		self.year = year
+		self.odometer_reading = 0
+
+	def get_description_name(self):
+		long_name = f"{self.year} {self.make} {self.model}"
+		return long_name
+
+
+	def read_odometer(self):
+		print(f"This car has {self.odometer_reading} miles on it.")
+
+my_new_car = Car('audi','a4','2019')
+print(my_new_car.get_description_name())
+my_new_car.read_odometer()
+
+#####################################end 6
+
+#####################################start 7
+
+#Modifying an attribute value
+#Here we are modifying the value of an attribute by directe access to the attribute directly
+#through an instance
+class Car:
+	def __init__(self, make, model, year):
+		self.make = make
+		self.model = model
+		self.year = year
+		self.odometer_reading = 0
+
+	def get_description_name(self):
+		long_name = f"{self.year} {self.make} {self.model}"
+		return long_name
+
+
+	def read_odometer(self):
+		print(f"This car has {self.odometer_reading} miles on it.")
+
+my_new_car = Car('audi','a4','2019')
+my_new_car.odometer_reading = 23
+my_new_car.read_odometer()
+
+#####################################end 7
+
+#####################################start 8
+#Modifying an Attribute value through a method
+
+class Car:
+	def __init__(self, make, model, year):
+		self.make = make
+		self.model = model
+		self.year = year
+		self.odometer_reading = 0
+
+	def get_description_name(self):
+		long_name = f"{self.year} {self.make} {self.model}"
+		return long_name
+
+	def update_odometer(self, mileage):
+		self.odometer_reading = mileage
+		
+	def read_odometer(self):
+		print(f"This car has {self.odometer_reading} miles on it.")
+
+my_new_car = Car('audi','a4','2019')
+print(my_new_car.get_description_name())
+
+my_new_car.update_odometer(23)
+my_new_car.read_odometer()
+#####################################8 end
+
+#####################################start 9
+
+#Incrementing an Attribute's value through a methods
+#here we have 2 methods def update_odometer(self, mileage) to update the mileage
+# method 2 def increment_odometer(self, miles): to increment the miles
+#method 3 to see the reading def read_odometer(self):
+
+class Car:
+	def __init__(self, make, model, year):
+		self.make = make
+		self.model = model
+		self.year = year
+		self.odometer_reading = 0
+
+	def update_odometer(self, mileage):
+		self.odometer_reading = mileage #the method does the work of changing the value
+
+	def increment_odometer(self, miles):
+		self.odometer_reading += miles
+
+	def read_odometer(self):
+		print(f"This car has {self.odometer_reading} miles on it.")
+
+my_used_car = Car('Subaru','outback','2015')
+
+
+my_used_car.update_odometer(23_500)
+my_used_car.read_odometer()
+
+my_used_car.increment_odometer(100)
+my_used_car.read_odometer()
+
+
+#####################################end 9
+
+#####################################Start 10 building upon previous challenge restrautant
+
+#Numbers Served
+
+#serve app
+#default served 0
+#create an instance of restrautant that prints the number_of_customers_servered()
+#method to set customers servered set_number_servered()
+#create an increment_number_servered() that lets you set the number of customers who've been served
+
+class restaurant:
+	def __init__(self, name, cuisine):
+		self.name = name
+		self.cuisine = cuisine
+		self.served = 0
+
+	def describe_restaurant(self):
+		print(f"\n{self.name} has great food.")
+		print(f"{self.name} menu compose of {self.cuisine}.")
+
+	def open_restaurant(self):
+		print(f"{self.name} is open for business.")
+
+	def number_of_customers_served(self):
+		print(f"The number of customers served {self.served}")
+
+	def set_number_served(self, manual_reported_number):
+		self.served += manual_reported_number
+		print(f"The updated number of customers served is {self.served}")
+
+	def increment_number_served(self, reported_number):
+		self.served += reported_number
+		print(f"The updated number of customers served is {self.served}")
+
+
+restaurant_1 = restaurant('In and Out','Fast Food') #instance in a variable
+restaurant_1.number_of_customers_served() #call instance and method in a class
+restaurant_1.set_number_served(23) #call instance and method in a class
+
+
+
+############################################################end 10
+
+############################################################start 12 login Attempts
+
+class Account:
+	def __init__(self, name, location, music, movies):
+
+		self.name = name
+		self.location = location
+		self.music = music
+		self.movies = movies
+		self.login_attempt = 0
+
+	def describe_person(self):
+		print(f"\n{self.name} and lives in {self.location} likeS to listen to {self.music} and watch {self.movies}")
+
+	def login_attempts(self):
+		print(f"\n You attempted to login at least {self.login_attempt} time.")
+
+	def increment_login_attempts(self):
+		if self.login_attempt <= 6:
+			self.login_attempt += 1
+			self.login_attempts()
+		elif self.login_attempt == 7:
+			self.reset_login_attempts()
+			print(f"\n Your account has been reset.")
+			
+
+	def reset_login_attempts(self):
+		self.login_attempt = 0
+		
+
+person1 = Account('Danthetech', 'US', 'The Empires March', 'Star Wars')
+person1.describe_person()
+#person1.login_attempts()
+person1.increment_login_attempts()
+person1.increment_login_attempts()
+person1.increment_login_attempts()
+person1.increment_login_attempts()
+person1.increment_login_attempts()
+person1.increment_login_attempts()
+person1.increment_login_attempts()
+person1.increment_login_attempts()
+person1.increment_login_attempts()
+person1.increment_login_attempts()
+
+
+
+#login_attempts
+#make a attribute for login_attempts
+#method called increment_login_attempts() that increments the value of login_attempts()
+#that increments the value of the login attempts by 1
+#another method called reset_login_attempts() that resets the value of login_attempts()
+#make an instance of user class call increment_login_attempts() several times
+#create logic after the increment is over 7 it will call the reset method
+#print the reset to show 0
+
+
+#set to 0
+
+############################################################end 12
+
+############################################################Start 13
+
+#Inheritance
+#You don't have to start from scratch when writing a class
+#If the class you're writing is a specialized version 
+#of another class you wrote, you can use inheritance.
+#
+#Think of it like this you have a car Blueprints called car
+#The 1st Blue print Has a window, door, and tires.
+#Now if we want to make a new Class for a sports car
+#We could use those previous blue prints as a starting
+#point and we could call on the Parent Blueprints car
+#Note we are just creating our Electric Car method when we go to
+#step 14 we will actually create unique Electric Car attributes
+
+class Car:
+
+	def __init__(self, make, model, year):
+		self.make = make
+		self.model = model
+		self.year = year
+		self.odometer_reading = 0
+
+	def get_descriptive_name(self):
+		long_name = f"{self.year} {self.make} {self.model}"
+		return long_name.title()
+
+	def read_odometer(self):
+		print(f"This car has {self.odometer_reading} miles on it.")
+
+	def update_odometer(self, mileage):
+		if mileage >= self.odometer_reading:
+			self.odometer_reading = mileage
+		else:
+			print("You can't roll back an odometer!")
+
+		def increment_odometer(self, miles):
+			self.odometer_reading += miles
+
+class ElectricCar(Car): #we define the child class as car it must be inside the parentheses
+
+	def __init__(self, make, model, year): #take the information required to make car instance
+		super().__init__(make, model, year) #allows you to call a method from the parent class
+
+my_tesla = ElectricCar('tesla','model s','2019') #create an instance of the ElectricCar pass the arugments
+print(my_tesla.get_descriptive_name()) #call a method for my_tesla instance which in this case is inherted
+
+############################################################End 13
+
+############################################################Start 14
+#Defining Attributes and methods for the child class
+#Here we add an attribute and method to describe the electric subclass
+class Car:
+
+	def __init__(self, make, model, year):
+		self.make = make
+		self.model = model
+		self.year = year
+		self.odometer_reading = 0
+
+	def get_descriptive_name(self):
+		long_name = f"{self.year} {self.make} {self.model}"
+		return long_name.title()
+
+	def read_odometer(self):
+		print(f"This car has {self.odometer_reading} miles on it.")
+
+	def update_odometer(self, mileage):
+		if mileage >= self.odometer_reading:
+			self.odometer_reading = mileage
+		else:
+			print("You can't roll back an odometer!")
+
+		def increment_odometer(self, miles):
+			self.odometer_reading += miles
+
+#Defining Attributes and Methods for the Child Class
+
+
+
+class ElectricCar(Car):
+	def __init__(self, make, model, year):
+		super().__init__(make, model, year)#note we don't have :
+		self.battery_size = 75 #we add a new value/attribute and it will be associated with Electric car
+
+	def describe_battery(self):#added a new method to describe battery()
+		print(f"This car has a {self.battery_size} -kWh battery.")
+
+my_tesla = ElectricCar('tesla','model',2019)
+print(my_tesla.get_descriptive_name())
+my_tesla.describe_battery()
+
+####################################################end 14
+
+
+####################################################Start 15
+#Overriding Methods from the Parent Class
+#If lets say you have a parent class that isn't applicable you
+#could overwrite it by defining a method the parent class with
+#the same name as the method you want to override in the parent class
+
+class Car:
+
+	def __init__(self, make, model, year):
+		self.make = make
+		self.model = model
+		self.year = year
+		self.odometer_reading = 0
+
+	def get_descriptive_name(self):
+		long_name = f"{self.year} {self.make} {self.model}"
+		return long_name.title()
+
+	def read_odometer(self):
+		print(f"This car has {self.odometer_reading} miles on it.")
+
+	def update_odometer(self, mileage):
+		if mileage >= self.odometer_reading:
+			self.odometer_reading = mileage
+		else:
+			print("You can't roll back an odometer!")
+
+		def increment_odometer(self, miles):
+			self.odometer_reading += miles
+
+#Defining Attributes and Methods for the Child Class
+
+
+
+class ElectricCar(Car):
+	def __init__(self, make, model, year):
+		super().__init__(make, model, year)
+		self.battery_size = 75 #we add a new value/attribute and it will be associated with Electric car
+		#Initialize attributes of the parent class
+		#Then initialize attributes specific to an electric car.
+	def describe_battery(self):#added a new method to describe battery()
+		print(f"This car has a {self.battery_size} -kWh battery.")
+
+	def fill_gas_tank(self): #If someone tries to fill up the electric car with gas
+		print("This car doesn't need a gas tank!")#they will get this prompt
+
+my_tesla = ElectricCar('tesla','model',2019)
+print(my_tesla.get_descriptive_name())
+my_tesla.describe_battery()
+my_tesla.fill_gas_tank()
+
+#############################################end 15
+
+#############################################Start 16
+
+#Instances as Attributes
+#This is lenghty so lets seperate our classes to break them up into smaller classes
+
+class Car:
+
+	def __init__(self, make, model, year):
+		self.make = make
+		self.model = model
+		self.year = year
+		self.odometer_reading = 0
+
+	def get_descriptive_name(self):
+		long_name = f"{self.year} {self.make} {self.model}"
+		return long_name.title()
+
+	def read_odometer(self):
+		print(f"This car has {self.odometer_reading} miles on it.")
+
+	def update_odometer(self, mileage):
+		if mileage >= self.odometer_reading:
+			self.odometer_reading = mileage
+		else:
+			print("You can't roll back an odometer!")
+
+		def increment_odometer(self, miles):
+			self.odometer_reading += miles
+
+
+
+class Battery:
+	#A simple attempt to model a battery for an electric car
+	#We initialize batteries
+	def __init__(self, battery_size=75):
+		#Initialize the battery's attributes
+		self.battery_size = battery_size
+
+	def describe_battery(self):
+		#print a statement describing the battery size
+		print(f"This car has a {self.battery_size} -kqh battery.")
+		#print battery info
+
+class ElectricCar(Car):
+	#Represent aspects of a car, specific to electric vehicles
+	def __init__(self, make, model, year):
+		#Initialize attributes of the parent class
+		#Then initialize attributes specific to an electric car.
+		super().__init__(make, model, year)
+		self.battery = Battery()
+		#Store called method
+
+	def describe_battery(self):#added a new method to describe battery()
+		print(f"This car has a {self.battery_size} -kWh battery.")
+
+	def fill_gas_tank(self): #If someone tries to fill up the electric car with gas
+		print("This car doesn't need a gas tank!")#they will get this prompt
+	def get_descriptive_name(self):
+		long_name = f"{self.year} {self.make} {self.model}"
+		return long_name.title()
+
+my_tesla = ElectricCar('tesla','model',2019)
+print(my_tesla.get_descriptive_name())
+my_tesla.battery.describe_battery()
+#Call new instances my_tesla.battery print battery info
+
+#############################################end 16
+
+#############################################Start 17 extra logic
+#The get_range(self) method uses some extra logic to provide mileage
+
+
+#Instances as Attributes
+#This is lenghty so lets seperate our classes to break them up into smaller classes
+
+class Car:
+
+	def __init__(self, make, model, year):
+		self.make = make
+		self.model = model
+		self.year = year
+		self.odometer_reading = 0
+
+	def get_descriptive_name(self):
+		long_name = f"{self.year} {self.make} {self.model}"
+		return long_name.title()
+
+	def read_odometer(self):
+		print(f"This car has {self.odometer_reading} miles on it.")
+
+	def update_odometer(self, mileage):
+		if mileage >= self.odometer_reading:
+			self.odometer_reading = mileage
+		else:
+			print("You can't roll back an odometer!")
+
+		def increment_odometer(self, miles):
+			self.odometer_reading += miles
+
+
+
+class Battery:
+	#A simple attempt to model a battery for an electric car
+	#We initialize batteries
+	def __init__(self, battery_size=75):
+		#Initialize the battery's attributes
+		self.battery_size = battery_size
+
+	def describe_battery(self):
+		#print a statement describing the battery size
+		print(f"This car has a {self.battery_size} -kqh battery.")
+		#print battery info
+
+	def get_range(self): #uses logic to provide ranged info
+		#Print a statement about the range this battery provides
+		if self.battery_size == 75:
+			range = 260
+		elif self.battery_size == 100:
+			range = 315
+		print(f"This car can go about {range} miles on a full charge.")
+
+
+class ElectricCar(Car):
+	#Represent aspects of a car, specific to electric vehicles
+	def __init__(self, make, model, year):
+		#Initialize attributes of the parent class
+		#Then initialize attributes specific to an electric car.
+		super().__init__(make, model, year)
+		self.battery = Battery()
+		#Store called method
+
+	def describe_battery(self):#added a new method to describe battery()
+		print(f"This car has a {self.battery_size} -kWh battery.")
+
+	def fill_gas_tank(self): #If someone tries to fill up the electric car with gas
+		print("This car doesn't need a gas tank!")#they will get this prompt
+	def get_descriptive_name(self):
+		long_name = f"{self.year} {self.make} {self.model}"
+		return long_name.title()
+
+my_tesla = ElectricCar('tesla','model',2019)
+print(my_tesla.get_descriptive_name())
+my_tesla.battery.describe_battery()
+my_tesla.battery.get_range()
+#Call new instances my_tesla.battery print battery info
+
+#############################################End 17
+
+############################################Ice-Stand start 18
+
+#make restaurants parent class and ice-cream stand child
+#make new attribute flavors that stores ice-cream  flavors
+
+class restaurant:
+	def __init__(self, name, cuisine):
+		self.name = name
+		self.cuisine = cuisine
+		self.served = 0
+
+	def describe_restaurant(self):
+		print(f"\n{self.name} has great food.")
+		print(f"{self.name} menu compose of {self.cuisine}.")
+
+	def open_restaurant(self):
+		print(f"{self.name} is open for business.")
+
+	def number_of_customers_served(self):
+		print(f"The number of customers served {self.served}")
+
+	def set_number_served(self, manual_reported_number):
+		self.served += manual_reported_number
+		print(f"The updated number of customers served is {self.served}")
+
+	def increment_number_served(self, reported_number):
+		self.served += reported_number
+		print(f"The updated number of customers served is {self.served}")
+
+class IceCreamStand(restaurant):
+	#here we are creating a new class called IceCreamStand which is inherited from the restaurant class
+	def __init__(self, name, cuisine, served):
+		#Initialize attributes of the parent class
+		#Then initialize attributes specific to an IceCreamStand such as flavors.
+		super().__init__(name, cuisine = 'Ice-cream')
+		self.flavors = ''
+
+	def typesoffavors(self):
+		flavors = ['Chocolate','Vanilla','Strawberry']
+		print(f"Please choose a flavor: {flavors}")
+
+
+my_IceStand = IceCreamStand('El Ice-cream','Ice-cream','Ice-cream')
+my_IceStand.typesoffavors()
+
+
+##########################Ice-Stand end 18
+
+############################################Admin start 19
+
+#inherits from the usere class
+#add attribute, privileges, that stores a list of strings
+#'can add post','can delete post','can ban users'
+#method show_privileges() to list the privileges
+#create an instance of Admin
+
+class Account:
+	def __init__(self, name, location, music, movies):
+
+		self.name = name
+		self.location = location
+		self.music = music
+		self.movies = movies
+		self.login_attempt = 0
+
+	def describe_person(self):
+		print(f"\n{self.name} and lives in {self.location} likeS to listen to {self.music} and watch {self.movies}")
+
+	def login_attempts(self):
+		print(f"\n You attempted to login at least {self.login_attempt} time.")
+
+	def increment_login_attempts(self):
+		if self.login_attempt <= 6:
+			self.login_attempt += 1
+			self.login_attempts()
+		elif self.login_attempt == 7:
+			self.reset_login_attempts()
+			print(f"\n Your account has been reset.")
+			
+
+	def reset_login_attempts(self):
+		self.login_attempt = 0
+		
+class Admin_class(Account):
+	def __init__(self, name, location, music, movies):
+		super().__init__(name, location, music, movies)
+		self.admin = ['can add post','can delete post','can ban users']
+
+	def show_privileges(self):
+		admin = ['can add post','can delete post','can ban users']
+		print(f"The Admin can do the following:")
+		for adminpriv in admin:
+			print(f"\n-{adminpriv}")
+
+
+person1 = Admin_class('Danthetech', 'US', 'The Empires March', 'Star Wars')
+person1.show_privileges()
+#person1.login_attempts()
+
+############################################Admin end 19
+
+############################################Battery start 20
+class Car:
+
+	def __init__(self, make, model, year):
+		self.make = make
+		self.model = model
+		self.year = year
+		self.odometer_reading = 0
+
+	def get_descriptive_name(self):
+		long_name = f"{self.year} {self.make} {self.model}"
+		return long_name.title()
+
+	def read_odometer(self):
+		print(f"This car has {self.odometer_reading} miles on it.")
+
+	def update_odometer(self, mileage):
+		if mileage >= self.odometer_reading:
+			self.odometer_reading = mileage
+		else:
+			print("You can't roll back an odometer!")
+
+		def increment_odometer(self, miles):
+			self.odometer_reading += miles
+
+
+
+class Battery:
+	#A simple attempt to model a battery for an electric car
+	#We initialize batteries
+	def __init__(self, battery_size=75):
+		#Initialize the battery's attributes
+		self.battery_size = battery_size
+
+	def describe_battery(self):
+		#print a statement describing the battery size
+		print(f"This car has a {self.battery_size} -kqh battery.")
+		#print battery info
+
+	def upgrade_battery(self):
+		self.battery_size = 100
+
+	def get_range(self): #uses logic to provide ranged info
+		#Print a statement about the range this battery provides
+		if self.battery_size == 75:
+			range = 260
+		elif self.battery_size == 100:
+			range = 315
+		print(f"This car can go about {range} miles on a full charge.")
+	
+
+class ElectricCar(Car):
+	#Represent aspects of a car, specific to electric vehicles
+	def __init__(self, make, model, year):
+		#Initialize attributes of the parent class
+		#Then initialize attributes specific to an electric car.
+		super().__init__(make, model, year)
+		self.battery = Battery()
+
+		#Store called method
+
+	def describe_battery(self):#added a new method to describe battery()
+		print(f"This car has a {self.battery_size} -kWh battery.")
+
+	def fill_gas_tank(self): #If someone tries to fill up the electric car with gas
+		print("This car doesn't need a gas tank!")#they will get this prompt
+	def get_descriptive_name(self):
+		long_name = f"{self.year} {self.make} {self.model}"
+		return long_name.title()
+
+	
+
+my_tesla = ElectricCar('tesla','model',2019)
+print(my_tesla.get_descriptive_name())
+my_tesla.battery.describe_battery()
+my_tesla.battery.get_range()
+my_tesla.battery.upgrade_battery()
+my_tesla.battery.describe_battery()
+my_tesla.battery.get_range()
+#Call new instances my_tesla.battery print battery info
+
+############################################Battery end 20
+
+############################################Importing Classes 21 car.py
+
+##car.py
+
+class Car:
+
+    def __init__(self, make, model, year):
+        self.make = make
+        self.model = model
+        self.year = year
+        self.odometer_reading = 0
+
+    def get_description_name(self):
+        long_name = f"{self.year} {self.make} {self.model}"
+        return long_name.title()
+
+    def read_odometer(self):
+        print(f"This car has {self.odometer_reading} miles on it.")
+
+    def update_odometer(self, mileage):
+        if mileage >= self.odometer_reading:
+            self.odometer_reading = mileage
+        else:
+            print("You can't roll back an odometer!")
+
+        def increment_odometer(self, miles):
+            self.odometer_reading += miles
+
+#######
+
+#######my_car.py
+
+from car import *
+
+my_new_car = Car('audi', 'a4', '2019')
+print(my_new_car.get_description_name())
+
+my_new_car.update_odometer(23)  # passing to method
+my_new_car.read_odometer()
+
+##end my_car.py
+
+
+
+
+############################################end 21 car.py
+
+###############################################################Importing classes
+############################################Importing Classes 22 car.py
+###############take this to pycharm
+
+class Car:
+
+    def __init__(self, make, model, year):
+        self.make = make
+        self.model = model
+        self.year = year
+        self.odometer_reading = 0
+
+    def get_description_name(self):
+        long_name = f"{self.year} {self.make} {self.model}"
+        return long_name.title()
+
+    def read_odometer(self):
+        print(f"This car has {self.odometer_reading} miles on it.")
+
+    def update_odometer(self, mileage):
+        if mileage >= self.odometer_reading:
+            self.odometer_reading = mileage
+        else:
+            print("You can't roll back an odometer!")
+
+        def increment_odometer(self, miles):
+            self.odometer_reading += miles
+
+
+class ElectricCar(Car):
+    # Represent aspects of a car, specific to electric vehicles
+    def __init__(self, make, model, year):
+        # Initialize attributes of the parent class
+        # Then initialize attributes specific to an electric car.
+        super().__init__(make, model, year)
+        self.battery = Battery()
+
+    # Store called method
+
+    def describe_battery(self):  # added a new method to describe battery()
+        print(f"This car has a {self.battery_size} -kWh battery.")
+
+    def fill_gas_tank(self):  # If someone tries to fill up the electric car with gas
+        print("This car doesn't need a gas tank!")  # they will get this prompt
+
+    def get_descriptive_name(self):
+        long_name = f"{self.year} {self.make} {self.model}"
+        return long_name.title()
+
+class Battery:
+    # A simple attempt to model a battery for an electric car
+    # We initialize batteries
+    def __init__(self, battery_size=75):
+        # Initialize the battery's attributes
+        self.battery_size = battery_size
+
+    def describe_battery(self):
+        # print a statement describing the battery size
+        print(f"This car has a {self.battery_size} -kqh battery.")
+
+    # print battery info
+
+    def upgrade_battery(self):
+        self.battery_size = 100
+
+    def get_range(self):  # uses logic to provide ranged info
+        # Print a statement about the range this battery provides
+        if self.battery_size == 75:
+            range = 260
+        elif self.battery_size == 100:
+            range = 315
+        print(f"This car can go about {range} miles on a full charge.")
+
+############################################car.py
+
+
+############################################my_car.py
+
+from car import Car , ElectricCar, Battery
+#from car import *
+
+my_new_car = Car('audi', 'a4', '2019')
+print(my_new_car.get_description_name())
+
+my_new_car.update_odometer(23)  # passing to method
+my_new_car.read_odometer()
+
+
+my_tesla = ElectricCar('tesla','model',2019)
+print(my_tesla.get_descriptive_name())
+my_tesla.battery.describe_battery()
+my_tesla.battery.get_range()
+my_tesla.battery.upgrade_battery()
+my_tesla.battery.describe_battery()
+my_tesla.battery.get_range()
+
+###########################################my_car.py end
+
+############################################end 22
+
+
+
+################################################start 23 Python Standard Library
+
+#Python Standard Library
+#when you install Python it has a standard library
+#you could use the randint() to generate a random number between 1 and 6
+
+
+from random import randint
+print(randint(1,6))
+
+###############################################end 23
+
+############################start 24
+#Picking a random item from a list
+from random import choice
+players = ['charles','martina','michael','florence','eli']
+first_up = choice(players)
+print(first_up)
+###########################end 24
+
+
+###############################start 25 Standard Library
+from random import randint
+start = 1
+roll = 4
+while start <= roll:
+	results = print(randint(1,6))
+	start += 1
+###############################end 25
+
+###############################start 26 Modules available online
+
+#https://pymotw.com/3/os.path/index.html
+
+###############################end 26
+
+###Classes styling
+
+#use CamelCase cap the first letter of each word
+#keep modules lowercase with underscores
+#docstring to document what the string does
