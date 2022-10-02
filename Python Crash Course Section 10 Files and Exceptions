@@ -1,0 +1,753 @@
+Python Crash Course Section 10 Files and Exceptions
+
+
+#CH 10
+#Files and Exceptions
+#Working with data and files
+#Reason for exceptions: when you make an app you may want people to open and save files
+#We are going to learn how reading from a files and write to them
+
+#Here is a program that opens a file, reads it, and prints the contents of the 
+#file on the screen
+
+with open('c:\\tmp\\test.txt') as file object:
+	contents = file_objec.read()
+print(contents)
+
+
+#My tip is to ensure the file path is good or you will have issues 
+#with your code moving forward
+#####################1 start
+import os
+
+file_path = "c:\\tmp\\test.txt" 
+with open(file_path) as file: #assign object file
+	contents = file.read() #Allows us to readfile #puts in contents variable
+print(contents)
+######################1 end
+
+######################2 start
+#Reading Line by Line
+
+file_path = "c:\\tmp\\test.txt" 
+with open(file_path) as file: 
+	for line in file:
+		print(line)
+#next we will fix the space you see below as we don't want a space
+######################2 end
+
+######################3 start
+#reading each line and removing the rstrip
+file_path = "c:\\tmp\\test.txt" 
+with open(file_path) as file:
+	for line in file:
+		print(line.rstrip())
+######################3 end
+
+######################4 start
+#Making a list of lines from a file
+
+file_path = "c:\\tmp\\test.txt" #best pratice is to store the list info in filenames
+with open(file_path) as file:
+	lines = file.readlines() #prints lines and stores in a list
+
+for line in lines:
+	print(line.rstrip())
+
+######################4 end
+
+######################5 start
+#Working with a file's contents
+file_path = "c:\\tmp\\test.txt" #best pratice is to store the list info in filenames
+with open(file_path) as file: #opens and assigns object
+	lines = file.readlines()
+
+pi_string = ''
+for line in lines:
+	pi_string += line.rstrip() #adds to pi_string
+print(pi_string) #prints pi_string
+print(len(pi_string)) #prints the pi length
+######################5 end
+
+######################6 start
+file_path = "c:\\tmp\\test.txt" #best pratice is to store the list info in filenames
+with open(file_path) as file: #opens and assigns object
+	lines = file.readlines()
+
+pi_string = ''
+for line in lines:
+	pi_string += line.strip() #adds to pi_string and removes any spaces
+print(pi_string) #prints pi_string
+print(len(pi_string)) #prints the pi length
+######################6 end
+
+######################7 start
+
+
+file_path = "c:\\tmp\\pi_million_digits.txt" #best pratice is to store the list info in filenames
+with open(file_path) as file:
+	lines = file.readlines()
+pi_string = ''
+for line in lines:
+	pi_string += line.strip()
+print(f"{pi_string[:52]}...")
+print(len(pi_string))
+
+######################7 end
+
+######################8 checking your birthday
+
+file_path = "c:\\tmp\\pi_million_digits.txt" #best pratice is to store the list info in filenames
+with open(file_path) as file:
+	lines = file.readlines()
+pi_string = ''
+for line in lines:
+	pi_string += line.strip()
+print(f"{pi_string[:52]}...")
+print(len(pi_string))
+birthday = "01011775"
+if birthday in pi_string:
+	print("Your birthday appears in the first million digits of pi!!")
+else:
+	print("Your birthday does not appear in the first million digits of pi.")
+
+######################end 8 checking your birthday
+
+######################Start 9 Changing value in file
+#Learning C
+file_path = "c:\\tmp\\Like.txt" #best pratice is to store the list info in filenames
+with open(file_path) as file: #opens and assigns object
+	lines = file.readlines()
+
+like_string = ''
+replacement = ""
+
+for line in lines:
+	line = line.strip()
+	change = line.replace('Python','C#')
+	replacement = replacement + change + "\n"
+print(replacement)
+like_string += line.strip()
+######################end 9 Changing value in file
+	
+
+######################Start 10 Writing to a file
+#Here we add a second argument w to tell python we want to open a file in write mode
+
+file_path = "c:\\tmp\\writetofile.txt"
+with open(file_path, 'w') as file:
+	file.write("I love programming.")
+
+with open(file_path) as file: #opens and assigns object
+	lines = file.readlines()
+	print(lines)
+######################end 10
+
+######################Start 11
+#Writing Multiple Lines
+#we need to a the \n new line or else we will have
+#have a merged sentence
+filename = 'c:\\tmp\\writetofile.txt'
+
+with open(filename, 'w') as file:
+	file.write("I love programming")
+	file.write("I love creating new games.")
+######################end 11
+
+######################Start 12
+file_path = 'c:\\tmp\\writetofile.txt'
+
+with open(file_path, 'w') as file:
+	file.write("I love programming.\n")
+	file.write("I love creating new games.\n")
+
+######################end 12
+
+######################Start 13
+#Appending to a file
+
+file_path = 'c:\\tmp\\appendingtofile.txt'
+with open(file_path, 'a') as file_object:
+	file_object.write("I also love learning python.\n")
+	file_object.write("I love creating apps.\n")
+
+######################end 13
+
+######################start 14 Challenge 10-3 Guest
+#Prompts  the user for their name
+#the name they enter will get input in a guest.txt
+
+#write a while loop that prompts for their name
+#print a greating
+#append their name in the greating book
+
+
+polling_active = True
+#Set a flag
+while polling_active:
+    # prompt for the person to enter their name
+    name = input("\nWhat is your name?: ")
+
+    # Find out if anyone else is going to take the poll.
+    repeat = input("Is anyone else visiting? If so enter another name or input no. (yes/no).")
+    if repeat == "no":
+        polling_active = False
+
+    # Polling is complete. Show the Results
+    print("\n--Poll Results----")
+    print(f"Thank you for visiting. Your visit has been recording {name}.")
+
+    file_path = "c:\\tmp\\appendingtofile.txt"
+    with open(file_path, 'a') as file:
+        file.write(f"{name}\n")
+
+
+######################end 14
+
+######################start 15 programming poll challenge
+programming_poll_active = True
+#Set a flag
+while programming_poll_active:
+
+    # Ask why do they like programming
+    repeat = input("Why do you like programming? To exit input (no).")
+    if repeat == "no":
+        programming_poll_active = False
+
+    # Request a response or no to exit
+    print("\n--Poll Notice----")
+    print(f"Enter another response or input no to exit.")
+
+    file_path = "c:\\tmp\\programming_poll.txt"
+    with open(file_path, 'a') as file:
+        file.write(f"{repeat}\n")
+######################end 15
+
+######################start 16 Exceptions
+#handing exceptions such as division errors
+
+print(5/0) #this is an example and it will result in an error
+
+######################end 16
+
+######################start 17
+#try - except block error
+
+try:
+	print(5/0) #this will not execute and the except will catch the error
+except ZeroDivisionError:
+	print("You can't divide by zero!") #this will be displayed
+######################end 17
+
+######################start 18 error example
+#Using exceptions to prevent crashes
+#Putting this in Pycharm will cause an error if you input 0 /5 
+print("Give me two numbers, and I'll divide them.")
+print("Enter 'q' to quit.")
+
+while True:
+    first_number = input("\nFirst number: ")
+    if first_number == 'q':
+        break
+    second_number = input('Second number: ')
+    if second_number == 'q':
+        break
+    answer = int(first_number) / int(second_number)
+    print(answer)
+######################end 18
+
+#####################Start 19 Using Exceptions to prevent crashes
+#here we have a try , except, and else which allow use to 
+#catch errors and makes our code more resistant to errors
+print("Give me two numbers, and I'll divide them.")
+print("Enter 'q' to quit")
+
+while True:
+    first_number = input("First number: ")
+    if first_number == 'q':
+        break
+    second_number = input("Second number: ")
+    if second_number == 'q':
+        break
+    try: #python will try to run this
+        answer = int(first_number) / int(second_number)
+    except ZeroDivisionError: #if an error occurs do this
+        print("You can't divide by 0!")
+    else: #if you are able to determine the answer print it
+        print(answer)
+######################end 19
+
+#####################Start 20 Handling the filenotefounderror exception
+#bad code example
+
+filename = 'alice.txt'
+
+with open(filename, encoding = 'utf-8') as f:
+	contents = f.read()
+######################this will error out as no file exist
+
+###########################
+###########################This will work
+filename = 'alice.txt'
+
+try:
+	with open(filename, encoding = 'utf-8') as f:
+		contents = f.read()
+except FileNotFoundError:
+		print(f'Sorry, the file {filename} does not exist.')
+
+##########################end 20
+
+
+#####################Start 21 counting words
+#Show C-drive and the reading showing it has 32 words
+#variable with filename
+filename = "c:\\tmp\\Alice_in_wonderland.txt"
+
+try:
+	with open(filename, encoding='utf-8') as f: #python opens the file and assigns it the variable f
+		contents = f.read() #reads the file
+except FileNotFoundError:
+	print(f"Sorry, the file {filename} does not exist.") #except for error
+else:
+	#Count the approximate number of words in the file.
+	words = contents.split() #splits each string which have a space that seperates words in the string
+	num_words = len(words) #counts the number of words
+	print(f"The file {filename} has about {num_words} words.")
+
+#####################end 21
+
+
+#####################Start 22 working with multiple files
+#working with multiple files
+#here we create a function which we can easily pass multiple files to
+def count_words(filename):
+	#count the approximate number of words in a file
+	try:
+		with open(filename, encoding='utf-8') as f:
+			contents = f.read()
+	except FileNotFoundError:
+		print(f"Sorry, the file {filename} does not exist.")
+	else:
+		words = contents.split()
+		num_words = len(words)
+		print(f"The file {filename} has about {num_words} words.")
+
+
+
+filesname = ['c:\\tmp\\Alice_in_wonderland.txt','c:\\tmp\\Like.txt']
+for filename in filesname:
+	count_words(filename)
+#######################end 22
+
+#######################start 23
+
+def count_words(filename):
+	#count the approximate number of words in a file
+	try:
+		with open(filename, encoding='utf-8') as f:
+			contents = f.read()
+	except FileNotFoundError:
+		print(f"Sorry, the file {filename} does not exist.")
+	else:
+		words = contents.split()
+		num_words = len(words)
+		print(f"The file {filename} has about {num_words} words.")
+
+
+
+filesname = ['c:\\tmp\\Alice_in_wonderland.txt','c:\\tmp\\Like.txt','errorpls.txt']
+for filename in filesname:
+	count_words(filename)
+
+	###################end 23
+
+
+#######################start 24 falling silently
+#sometimes you want python to fall silently
+#you tell python to do nothing by putting pass after the except
+#The users will not be aware any error occured
+#here you will not see error pls.txt for the output
+
+def count_words(filename):
+	try:
+		with open(filename, encoding='utf-8') as f:
+			contents = f.read()
+	except FileNotFoundError:
+		pass
+	else:
+		words = contents.split()
+		num_words = len(words)
+		print(f"The file {filename} has about {num_words} words.")
+
+filesname = ['c:\\tmp\\Alice_in_wonderland.txt','c:\\tmp\\Like.txt','errorpls.txt']
+for filename in filesname:
+	count_words(filename)
+
+	###################end 24 
+
+#######################start 25 falling rule of thumb
+
+#if you think someone will benefit from seeing the error include it
+#if they expect the program to work and the error is providing to 
+#much information don't show it
+###################end 25
+
+
+#######################start 26 addition
+#creating a program that will prompt for a numerical input
+#note some users will input letters so we need to prompt
+#them with a error that says we don't accept letters
+
+# Addition
+
+polling_active = True
+# Set a flag
+while polling_active:
+    # prompt for the person to enter a number
+    first_number = input("\nEnter a number: ")
+    second_number = input("\nEnter a second number: ")
+    polling_active = False
+try:
+    total = int(first_number) + int(second_number)
+except ValueError:
+    print(f"Sorry, ensure to enter two numbers.")  # except for error
+else:
+    print(f"The total is {total}.")
+#######################end 26 
+
+#######################start 27 Addition Calculator
+# Addition
+#this will continue to run even if it prompt an error
+
+
+# Set a flag
+while True:
+    # prompt for the person to enter a number
+    first = input(f"\nEnter a number: ")
+    if first == 'q':
+        break
+    second = input(f"\nEnter a second number: ")
+    if second == 'q':
+        break
+    try:
+        total = int(first) + int(second)
+    except ValueError:
+        print(f"Sorry, ensure to enter two numbers.")  # except for error
+    else:
+        print(f"The total is {total}")
+
+#######################end 27
+
+#######################Start Cat and Dogs 28
+#Cat and Dogs
+#Make two files and store at least three names of cats in the first file and three names of dogs
+#write a program that will read these files and prints contents to the screen
+
+
+def print_this(filename): #function named print_this
+	try:
+		with open(filename, encoding='utf-8') as f: #open the file
+			lines = f.readlines() #read each line in the file and put in lines
+		contents = '' #list called contents
+		for line in lines: #for each line we read in the file
+			contents += line #add to the contents list
+	except FileNotFoundError: #if error do this
+		pass
+	else:
+		print(f"{contents}\n") #else print the contents of the file
+		
+			
+
+filesname = ['c:\\tmp\\cats.txt','c:\\tmp\\dogs.txt'] #files paths
+for filename in filesname: #for each file in the file list above
+	print(f"{filename}") #print the file name of the file so we know which file it read
+	print_this(filename) #call function to preform Try, Except, else with file
+########################end Cat and Dogs 28
+
+########################Common words from the  cyber and justice holmes book found on gutenberg.org
+######################Start 29
+def print_this(filename): #function named print_this
+	try:
+		with open(filename, encoding='utf-8') as f: #open the file
+			lines = f.readlines() #read each line in the file and put in lines
+		contents = '' #list called contents
+		for line in lines: #for each line we read in the file
+			contents += line #add to the contents list
+	except FileNotFoundError: #if error do this
+		pass
+	else:
+		print(f"{contents}\n") #else print the contents of the file
+		words = contents.split() #used to the count the number of words in the file
+		counter = len(open('c:\\tmp\\The_Cyber_and_Justice_Holmes.txt').readlines())
+
+		common_word = "the" #variable to store the common word you are looking for
+		count = contents.lower().count(common_word) #turns the content into lowercase to ensure we count all the "the" words
+		                                            #we need to ensure we account for all the capital The and lowercase the
+
+		print(f"Number of words in text file :", len(words)) #counts the number of words in the file
+		print(f"Total Number of lines:", counter) #Counts the total number of lines in the file
+		print(f'The total count of the word "{common_word}" in the text file was :', count) #count the supplied common word in the text file
+
+filesname = ['c:\\tmp\\The_Cyber_and_Justice_Holmes.txt'] #files paths
+for filename in filesname: #for each file in the file list above
+	print(f"{filename}") #print the file name of the file so we know which file it read
+	print_this(filename) #call function to preform Try, Except, else with file
+#################################end 29
+
+################################Storing Data JSON 30
+#Here we will dump the contents of the number list
+#into our Json file and after we will load the numbers
+#into memory and print the numbers
+#Doing this would allow use to save our work(number list)
+#to a json file which we could use later
+#in this case we load it right after and print the contents of the file
+import json
+
+numbers = [2, 3, 5,7,11, 13]
+
+filename = 'c:\\tmp\\numbers.json'
+with open(filename, 'w') as f:
+	json.dump(numbers, f) #dump numbers to the file
+
+filename = 'c:\\tmp\\numbers.json'
+with open(filename) as f: #read the file
+	numbers = json.load(f) #load the saved data to memory
+
+print(numbers) #print the contents of the file to the screen
+
+##############################end JSON data 30
+
+
+##############################Look at the Saving user generated data file in pycharm start
+#First we have a file that will check our name 31
+
+import json
+
+username = input("What is your name? ")
+
+filename = 'c:\\tmp\\numbers.json'
+with open(filename, 'w') as f:
+    json.dump(username, f)
+    print(f"We'll remember you when you come back, {username}!")
+
+##############################end 31
+
+##############################User_generated_data2 32
+#Looks at the file to see if the user has signed in before
+
+import json
+
+filesname = 'c:\\tmp\\numbers.json'
+
+with open(filesname) as f:
+    username = json.load(f)
+    print(f"Welcome back, {username}!")
+###############################end User generated data 2 32
+
+###############################Start 33
+import json
+
+#load the username, if it has been stored previously
+#otherwise, prompt for the username and store it.
+
+filename = 'username.json'
+try:
+	with open(filename) as f:
+		username = json.load(f)
+except FileNotFoundError:
+	username = input("What is your name? ")
+	with open(filename, 'w')
+################################end 33
+
+###############################start 34
+##############################combines both the functions
+
+#load the username, if it has been stored previously
+#otherwise, prompt for the username and store it.
+import json
+
+filename = 'c:\\tmp\\numbers.json'
+try:
+	with open(filename) as f:
+		username = json.load(f)
+except FileNotFoundError:
+	username = input("What is your name? ")
+	with open(filename, 'w') as f:
+		json.dump(username, f)
+		print(f"We'll remember you when you come back, {username}!")
+else:
+	print(f"Welcome back, {username}!")
+
+###############################end 34 combines both the functions
+
+###############################Start 35 Refactoring
+#Basically breaking up your code so it is easier to read and certain 
+#parts will conduct certain logic.
+
+####################Here is our code that we will be Refactoring 
+import json
+filename = 'c:\\tmp\\numbers.json'
+def greet_user():
+	try:
+		with open(filename) as f:
+			username = json.load(f)
+	except FileNotFoundError:
+		username = input("What is  your name?")
+		with open(filename, 'w') as f:
+			json.dump(username, f)
+			print(f"We'll remember you when you come back, {username}!")
+	else:
+		print(f"Welcome back, {username}!")
+
+greet_user()
+#####################Done refactoring end 34
+
+#####################Start 35
+#Go to Pycharm Refactoring_greeting
+#Starting refactoring
+#Function 1 checking if the user is stored in the json file
+import json
+def get_stored_username():
+#Get stored username if available
+	filename = 'c:\\tmp\\numbers.json'
+	try:
+		with open(filename) as f:
+			username = json.load(f)
+	except FileNotFoundError:
+		return FileNotFoundError
+	else:
+		return username
+
+
+def greet_user():
+#Greet the user by name
+	username = get_stored_username()
+	if username:
+		print(f"Welcome back, {username}!")
+	else:
+		username = input("What is your name?")
+		filename = 'c:\\tmp\\numbers.json'
+		with open(filename, 'w') as f:
+			json.dump(username, f)
+			print(f"We'll remember you when you come back, {username}!")
+greet_user()	
+
+########################end 35 for first refactoring demo
+
+####################Start 36 of full refactoring demo 2
+
+import json
+
+#if the username exist it returns the username
+def get_stored_username():
+	#Get stored username if available
+	filename = 'c:\\tmp\\numbers.json'
+	try:
+		with open(filename) as f:
+			username = json.load(f)
+	except FileNotFoundError:
+		return FileNotFoundError
+	else:
+		return username
+
+#if the username doesn't exist it ask the user for their name an returns the name
+def get_new_username():
+	#Prompt for a new username
+	username = input("What is your name?")
+	filename = "c:\\tmp\\numbers.json"
+	with open(filename, "w") as f:
+		json.dump(username, f)
+	return get_stored_username
+
+#Greets the user and calls other functions
+def greet_user():
+	#Greet the user by name
+	username = get_stored_username()
+	if username:
+		print(f"Welcome back, {username}!")
+	else:
+		username = get_new_username()
+		print(f"We'll remember you when you come back, {username}!")
+
+#calls Greet usesr function
+greet_user()
+######################end full refactoring
+
+#####################Start 37
+#####################Challlenge Favorite number
+#Make fav number json file
+#pycharm
+#change previous code for this challenge 
+
+import json
+
+filename = 'c:\\tmp\\fav_numbers.json'
+
+
+def greet_user_number():
+    try:
+        with open(filename) as f:
+            number = json.load(f)
+    except FileNotFoundError:
+        number = input("What is  your number?")
+        with open(filename, 'w') as f:
+            json.dump(number, f)
+            print(f"We'll remember your favorite number is :, {number}!")
+    else:
+        print(f"Your favorite number is: , {number}!")
+
+
+greet_user_number()
+
+###################end 37 challenge Favorite number
+
+###################Challenge Verify user start 38
+
+import json
+
+
+# if the username exist it returns the username
+def get_stored_username():
+    # Get stored username if available
+    filename = 'c:\\tmp\\numbers.json'
+    try:
+        with open(filename) as f:
+            username = json.load(f)
+    except FileNotFoundError:
+        return FileNotFoundError
+    else:
+        return username
+
+
+# if the username doesn't exist it ask the user for their name an returns the name
+def get_new_username():
+    # Prompt for a new username
+    username = input("What is your name?")
+    filename = "c:\\tmp\\numbers.json"
+    with open(filename, "w") as f:
+        json.dump(username, f)
+    return username
+
+
+# Greets the user and calls other functions
+def greet_user():
+    # Greet the user by name
+    username = get_stored_username()
+    if username:
+        print(f"Is your user name {username} ?")
+        response = input("Y or N: ")
+        if response == "Y":
+            print(f"Welcome back, {username}!")
+        if response == "N":
+            username = get_new_username()
+            print(f"We'll remember you when you come back, {username}!")
+    else:
+        username = get_new_username()
+        print(f"We'll remember you when you come back, {username}!")
+
+
+# calls Greet usesr function
+greet_user()
+
+#############################end 38
