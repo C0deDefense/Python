@@ -1,7 +1,7 @@
 import socket
 
 # IP and port to bind the server to
-IP = "192.168.56.7"
+IP = "inputyourlisteningIP"
 PORT = 7777
 
 # create a socket object
